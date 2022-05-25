@@ -1,0 +1,103 @@
+local toggle = false
+script.Parent.MouseButton1Click:connect(function()
+	if(not toggle) then
+		script.Parent.Text = ("✓")
+		toggle = true
+		while toggle do
+			if game:GetService("Workspace").Orbss:FindFirstChild("XPOrb") then
+				--[[VARIABLES]]--
+				local Orb1 = game:GetService("Workspace").Orbss.XPOrb.base
+				local Player = game.Players.LocalPlayer.Character
+				----------------------------------------------------------
+				Player.HumanoidRootPart.CFrame = Orb1.CFrame
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "WSBG Hack";
+					Text = "Found XP Orb";
+					Duration = 5;
+					Button1 = "Dismiss";
+				})
+				----------------------------------------------------------
+			else
+				----------------------------------------------------------
+				print("no XP Orb bruh")
+			end
+			----------------------------------------------------------||
+			if game:GetService("Workspace").Orbss:FindFirstChild("CoinOrb") then
+				--[[VARIABLES]]--
+				local Orb2 = game:GetService("Workspace").Orbss.CoinOrb.base
+				local Player = game.Players.LocalPlayer.Character
+				----------------------------------------------------------
+				Player.HumanoidRootPart.CFrame = Orb2.CFrame
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "WSBG Hack";
+					Text = "Found Coin Orb";
+					Duration = 5;
+					Button1 = "Dismiss";
+				})
+				----------------------------------------------------------
+			else
+				----------------------------------------------------------
+				print("no Coins bruh")
+			end
+			----------------------------------------------------------||
+			if game:GetService("Workspace").Orbss:FindFirstChild("HealOrb") then
+				--[[VARIABLES]]--
+				local Orb3 = game:GetService("Workspace").Orbss.HealOrb.base
+				local Player = game.Players.LocalPlayer.Character
+				----------------------------------------------------------
+				Player.HumanoidRootPart.CFrame = Orb3.CFrame
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "WSBG Hack";
+					Text = "Found Health Orb";
+					Duration = 5;
+					Button1 = "Dismiss";
+				})
+				----------------------------------------------------------
+			else
+				----------------------------------------------------------
+				print("no healing orb bruh")
+			end
+			----------------------------------------------------------||
+			if game:GetService("Workspace").Orbss:FindFirstChild("EnergyOrb") then
+				--[[VARIABLES]]--
+				local Orb4 = game:GetService("Workspace").Orbss.EnergyOrb.base
+				local Player = game.Players.LocalPlayer.Character
+				----------------------------------------------------------
+				Player.HumanoidRootPart.CFrame = Orb4.CFrame
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "WSBG Hack";
+					Text = "Found Energy Orb";
+					Duration = 5;
+					Button1 = "Dismiss";
+				})
+				----------------------------------------------------------
+			else
+				----------------------------------------------------------
+				print("no Energy Orb bruh")
+			end
+			----------------------------------------------------------||
+			if game:GetService("Workspace").DeathOrb.DeathOrb.base then
+				--[[VARIABLES]]--
+				local Orb5 = game:GetService("Workspace").DeathOrb.DeathOrb.base
+				local Player = game.Players.LocalPlayer.Character
+				----------------------------------------------------------
+				Player.HumanoidRootPart.CFrame = Orb5.CFrame
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "WSBG Hack";
+					Text = "Found Death Orb";
+					Duration = 5;
+					Button1 = "Dismiss";
+				})
+				----------------------------------------------------------
+			else
+				----------------------------------------------------------
+				print("no Death bruh")
+			end
+			end
+
+	else if (toggle) then
+			script.Parent.Text = ""
+			toggle = false
+		end
+	end
+end)
