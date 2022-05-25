@@ -1,0 +1,36 @@
+local toggle = false
+script.Parent.MouseButton1Click:connect(function()
+	if(not toggle) then
+		script.Parent.Text = ("✓")
+		toggle = true
+		while toggle do
+			wait()
+			if workspace.Bots:FindFirstChild("Mouselocking AI") then
+				local Bot = workspace.Bots["Mouselocking AI"]
+				Bot["Sword bot"].ClassicSword:Destroy()
+				Bot.Name = "NoSword"
+			else
+				toggle = false
+				script.Parent.Text = ""
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "WSBG Hack";
+					Text = "Turn On again to remove Current waves bot weapons.";
+					Duration = 5;
+					Button1 = "Dismiss";
+				})
+				toggle = false
+			end
+		end
+
+	else if (toggle) then
+			script.Parent.Text = ""
+			game:GetService("StarterGui"):SetCore("SendNotification", {
+				Title = "WSBG Hack";
+				Text = "Turn On again to remove Current waves bot weapons.";
+				Duration = 5;
+				Button1 = "Dismiss";
+			})
+			toggle = false
+		end
+	end
+end)
