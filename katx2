@@ -212,7 +212,7 @@ UICorner_8.Parent = Background
 
 -- Scripts:
 
-local function HNYQ_fake_script() -- System.Controller 
+local function QHLHJF_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -248,8 +248,6 @@ local function HNYQ_fake_script() -- System.Controller
 	local RapidFire_Button = Main:WaitForChild("RapidFireButton")
 	local Gems = Main:WaitForChild("Gems")
 	local Kills = Main:WaitForChild("Kills")
-	
-	_G.UpdateLoadstring = false
 	
 	if _G.RunningGui then _G.RunningGui:Destroy() end
 	
@@ -500,4 +498,4 @@ local function HNYQ_fake_script() -- System.Controller
 	
 	
 end
-coroutine.wrap(HNYQ_fake_script)()
+coroutine.wrap(QHLHJF_fake_script)()
