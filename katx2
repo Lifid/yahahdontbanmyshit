@@ -1,3 +1,8 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local System = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -19,10 +24,14 @@ local Retrieve = Instance.new("TextButton")
 local UICorner_7 = Instance.new("UICorner")
 local Background = Instance.new("ImageLabel")
 local UICorner_8 = Instance.new("UICorner")
+
+--Properties:
+
 System.Name = "System"
 System.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 System.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 System.ResetOnSpawn = false
+
 Main.Name = "Main"
 Main.Parent = System
 Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -32,7 +41,9 @@ Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.809005439, 0, 0.650662243, 0)
 Main.Size = UDim2.new(0.185551703, 0, 0.324503303, 0)
 Main.Visible = false
+
 UICorner.Parent = Main
+
 Gems.Name = "Gems"
 Gems.Parent = Main
 Gems.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -47,6 +58,7 @@ Gems.TextColor3 = Color3.fromRGB(255, 255, 255)
 Gems.TextScaled = true
 Gems.TextSize = 14.000
 Gems.TextWrapped = true
+
 Kills.Name = "Kills"
 Kills.Parent = Main
 Kills.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -61,6 +73,7 @@ Kills.TextColor3 = Color3.fromRGB(255, 255, 255)
 Kills.TextScaled = true
 Kills.TextSize = 14.000
 Kills.TextWrapped = true
+
 AutoFarmButton.Name = "AutoFarmButton"
 AutoFarmButton.Parent = Main
 AutoFarmButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -75,7 +88,9 @@ AutoFarmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 AutoFarmButton.TextScaled = true
 AutoFarmButton.TextSize = 14.000
 AutoFarmButton.TextWrapped = true
+
 UICorner_2.Parent = AutoFarmButton
+
 Creds.Name = "Creds"
 Creds.Parent = Main
 Creds.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -90,6 +105,7 @@ Creds.TextColor3 = Color3.fromRGB(0, 0, 0)
 Creds.TextScaled = true
 Creds.TextSize = 14.000
 Creds.TextWrapped = true
+
 RapidFireButton.Name = "RapidFireButton"
 RapidFireButton.Parent = Main
 RapidFireButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -104,7 +120,9 @@ RapidFireButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 RapidFireButton.TextScaled = true
 RapidFireButton.TextSize = 14.000
 RapidFireButton.TextWrapped = true
+
 UICorner_3.Parent = RapidFireButton
+
 KeySystem.Name = "KeySystem"
 KeySystem.Parent = System
 KeySystem.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -114,7 +132,9 @@ KeySystem.BorderSizePixel = 0
 KeySystem.Position = UDim2.new(0.40697673, 0, 0.422185421, 0)
 KeySystem.Size = UDim2.new(0.185551703, 0, 0.20198676, 0)
 KeySystem.Visible = false
+
 UICorner_4.Parent = KeySystem
+
 Key.Name = "Key"
 Key.Parent = KeySystem
 Key.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -131,7 +151,9 @@ Key.TextColor3 = Color3.fromRGB(178, 178, 178)
 Key.TextScaled = true
 Key.TextSize = 14.000
 Key.TextWrapped = true
+
 UICorner_5.Parent = Key
+
 Title.Name = "Title"
 Title.Parent = KeySystem
 Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -146,6 +168,7 @@ Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.TextScaled = true
 Title.TextSize = 14.000
 Title.TextWrapped = true
+
 Check.Name = "Check"
 Check.Parent = KeySystem
 Check.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
@@ -155,7 +178,9 @@ Check.BorderSizePixel = 0
 Check.Position = UDim2.new(0.786666691, 0, 0.525137007, 0)
 Check.Size = UDim2.new(0.163333327, 0, 0.401639581, 0)
 Check.Image = "rbxassetid://14562122532"
+
 UICorner_6.Parent = Check
+
 Retrieve.Name = "Retrieve"
 Retrieve.Parent = KeySystem
 Retrieve.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -170,7 +195,9 @@ Retrieve.TextColor3 = Color3.fromRGB(255, 255, 255)
 Retrieve.TextScaled = true
 Retrieve.TextSize = 14.000
 Retrieve.TextWrapped = true
+
 UICorner_7.Parent = Retrieve
+
 Background.Name = "Background"
 Background.Parent = KeySystem
 Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -180,33 +207,59 @@ Background.BorderSizePixel = 0
 Background.Size = UDim2.new(1, 0, 1, 0)
 Background.ZIndex = 0
 Background.ImageTransparency = 0.610
+
 UICorner_8.Parent = Background
-local function ILVAJ_fake_script() -- System.Controller 
+
+-- Scripts:
+
+local function HNYQ_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
+
 	local TeleportService = game:GetService("TeleportService")
 	local Players = game:GetService("Players")
 	local Vim = game:GetService("VirtualInputManager")
 	local Player = Players.LocalPlayer
+	
 	local GUI = script.Parent
 	local KeySystem = GUI:WaitForChild("KeySystem")
 	local CheckButton = KeySystem:WaitForChild("Check")
 	local GetKeyButton = KeySystem:WaitForChild("Retrieve")
 	local KeyTextbox = KeySystem:WaitForChild("Key")
 	local KeyBackground = KeySystem:WaitForChild("Background")
+	
+	--[[                    --------------------------------
+	CODE IMPORTANT BELOW
+	
+	
+	
+	]]
 	local ACCESS_CODE = "1234"
+	--[[
+	
+	
+	
+	CODE IMPORTANT ABOVE
+	]]                      --------------------------------
 	local RandomBackgrounds = {"rbxassetid://8153824697", "rbxassetid://10056462700", "rbxassetid://17858351415", "rbxassetid://911295583","rbxassetid://9083332688"}
 	KeyBackground.Image = RandomBackgrounds[math.random(1,#RandomBackgrounds)]
+	
 	local Main = GUI:WaitForChild("Main")
 	local Autofarm_Button = Main:WaitForChild("AutoFarmButton")
 	local RapidFire_Button = Main:WaitForChild("RapidFireButton")
 	local Gems = Main:WaitForChild("Gems")
 	local Kills = Main:WaitForChild("Kills")
-	local UpdateLoadstring = false
-	if _G.RunningGui then UpdateLoadstring = true _G.RunningGui:Destroy() end
+	
+	_G.UpdateLoadstring = false
+	
+	if _G.RunningGui then _G.RunningGui:Destroy() end
+	
 	_G.RunningGui = GUI
+	
 	_G.AutofarmScripts = false
 	_G.RapidfireScripts = false
+	
 	local AutofarmClickCooldown = false
+	
 	function simulateMouseClick()
 		if not _G.AutofarmScripts then return end
 		if AutofarmClickCooldown then return end
@@ -218,6 +271,7 @@ local function ILVAJ_fake_script() -- System.Controller
 			AutofarmClickCooldown = false
 		end)
 	end
+	
 	function Kill()
 		CheckForAdmins()
 		if not _G.AutofarmScripts then return end
@@ -326,14 +380,17 @@ local function ILVAJ_fake_script() -- System.Controller
 			end
 		end)
 	end
+	
 	function extractNumbers(input)
 		input = input:match("^%s*(.-)%s*$")
 		return input:gsub("[^%d]", "")
 	end
+	
 	function ServerHop()
 		local placeId = game.PlaceId
 		TeleportService:Teleport(placeId)
 	end
+	
 	function CheckForAdmins()
 		local FoundHigherAuthority = false
 	
@@ -350,14 +407,20 @@ local function ILVAJ_fake_script() -- System.Controller
 	
 		if FoundHigherAuthority then ServerHop() end
 	end
+	
 	Player.CharacterAdded:Connect(function(Char)
 		if _G.AutofarmScripts then Kill() end
 	end)
+	
 	local RevolverModule = require(game:GetService("ReplicatedStorage").GameContent.RevolverContent.RevolverClasses.RevolverClass.ClassData) -- however they get it
 	local GemBar = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Interface.BottomBar.GemCounter.Amount
 	local PreviousAmountOfGems = extractNumbers(GemBar.Text)
+	
+	--Safety 
 	repeat wait() until GemBar.Text ~= "2,140" 
+	
 	local KillAmount = 0
+	
 	function GUIFunction()
 		Main.Visible = true
 		Autofarm_Button.MouseButton1Click:Connect(function()
@@ -411,21 +474,30 @@ local function ILVAJ_fake_script() -- System.Controller
 			KeySystem:Destroy()
 		end
 	end
+	
 	GetKeyButton.MouseButton1Click:Connect(function()
 		setclipboard(tostring("https://direct-link.net/1133165/q2WvTJ3pmUrl"))
 		GetKeyButton.Text = "COPIED!"
 		wait(1)
 		GetKeyButton.Text = "GET KEY"
 	end)
-	if UpdateLoadstring then
+	
+	if _G.UpdateLoadstring then
 		GUIFunction()
 	else
 		KeySystem.Visible = true
+		
+		CheckButton.MouseButton1Click:Connect(function()
+			if KeyTextbox.Text == ACCESS_CODE and not _G.UpdateLoadstring then
+				GUIFunction()
+				_G.UpdateLoadstring = true
+			end
+		end)
+	
+	
+		
 	end
-	CheckButton.MouseButton1Click:Connect(function()
-		if KeyTextbox.Text == ACCESS_CODE and not UpdateLoadstring then
-			GUIFunction()
-		end
-	end)
+	
+	
 end
-coroutine.wrap(ILVAJ_fake_script)()
+coroutine.wrap(HNYQ_fake_script)()
