@@ -1,0 +1,431 @@
+local System = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Gems = Instance.new("TextLabel")
+local Kills = Instance.new("TextLabel")
+local AutoFarmButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Creds = Instance.new("TextLabel")
+local RapidFireButton = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local KeySystem = Instance.new("Frame")
+local UICorner_4 = Instance.new("UICorner")
+local Key = Instance.new("TextBox")
+local UICorner_5 = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local Check = Instance.new("ImageButton")
+local UICorner_6 = Instance.new("UICorner")
+local Retrieve = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local Background = Instance.new("ImageLabel")
+local UICorner_8 = Instance.new("UICorner")
+System.Name = "System"
+System.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+System.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+System.ResetOnSpawn = false
+Main.Name = "Main"
+Main.Parent = System
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BackgroundTransparency = 0.650
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.809005439, 0, 0.650662243, 0)
+Main.Size = UDim2.new(0.185551703, 0, 0.324503303, 0)
+Main.Visible = false
+UICorner.Parent = Main
+Gems.Name = "Gems"
+Gems.Parent = Main
+Gems.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Gems.BackgroundTransparency = 1.000
+Gems.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Gems.BorderSizePixel = 0
+Gems.Position = UDim2.new(0.166666672, 0, 0.654148638, 0)
+Gems.Size = UDim2.new(0.666666687, 0, 0.255102038, 0)
+Gems.Font = Enum.Font.SourceSansBold
+Gems.Text = "GEMS EARNED : 0"
+Gems.TextColor3 = Color3.fromRGB(255, 255, 255)
+Gems.TextScaled = true
+Gems.TextSize = 14.000
+Gems.TextWrapped = true
+Kills.Name = "Kills"
+Kills.Parent = Main
+Kills.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Kills.BackgroundTransparency = 1.000
+Kills.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Kills.BorderSizePixel = 0
+Kills.Position = UDim2.new(0.166666672, 0, 0.433088034, 0)
+Kills.Size = UDim2.new(0.666666687, 0, 0.255102038, 0)
+Kills.Font = Enum.Font.SourceSansBold
+Kills.Text = "KILLS EARNED : 0"
+Kills.TextColor3 = Color3.fromRGB(255, 255, 255)
+Kills.TextScaled = true
+Kills.TextSize = 14.000
+Kills.TextWrapped = true
+AutoFarmButton.Name = "AutoFarmButton"
+AutoFarmButton.Parent = Main
+AutoFarmButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmButton.BackgroundTransparency = 0.850
+AutoFarmButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoFarmButton.BorderSizePixel = 0
+AutoFarmButton.Position = UDim2.new(0.0233333334, 0, 0.0306122452, 0)
+AutoFarmButton.Size = UDim2.new(0.956666648, 0, 0.168367341, 0)
+AutoFarmButton.Font = Enum.Font.SourceSansBold
+AutoFarmButton.Text = "AUTOFARM STATUS : OFF"
+AutoFarmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarmButton.TextScaled = true
+AutoFarmButton.TextSize = 14.000
+AutoFarmButton.TextWrapped = true
+UICorner_2.Parent = AutoFarmButton
+Creds.Name = "Creds"
+Creds.Parent = Main
+Creds.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Creds.BackgroundTransparency = 1.000
+Creds.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Creds.BorderSizePixel = 0
+Creds.Position = UDim2.new(0, 0, 0.909250677, 0)
+Creds.Size = UDim2.new(1, 0, 0.0867346972, 0)
+Creds.Font = Enum.Font.SourceSans
+Creds.Text = "hi made by dabitob on disc"
+Creds.TextColor3 = Color3.fromRGB(0, 0, 0)
+Creds.TextScaled = true
+Creds.TextSize = 14.000
+Creds.TextWrapped = true
+RapidFireButton.Name = "RapidFireButton"
+RapidFireButton.Parent = Main
+RapidFireButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RapidFireButton.BackgroundTransparency = 0.850
+RapidFireButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+RapidFireButton.BorderSizePixel = 0
+RapidFireButton.Position = UDim2.new(0.0199999996, 0, 0.229591832, 0)
+RapidFireButton.Size = UDim2.new(0.956666648, 0, 0.168367341, 0)
+RapidFireButton.Font = Enum.Font.SourceSansBold
+RapidFireButton.Text = "RAPID FIRE STATUS : OFF"
+RapidFireButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+RapidFireButton.TextScaled = true
+RapidFireButton.TextSize = 14.000
+RapidFireButton.TextWrapped = true
+UICorner_3.Parent = RapidFireButton
+KeySystem.Name = "KeySystem"
+KeySystem.Parent = System
+KeySystem.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+KeySystem.BackgroundTransparency = 0.650
+KeySystem.BorderColor3 = Color3.fromRGB(0, 0, 0)
+KeySystem.BorderSizePixel = 0
+KeySystem.Position = UDim2.new(0.40697673, 0, 0.422185421, 0)
+KeySystem.Size = UDim2.new(0.185551703, 0, 0.20198676, 0)
+KeySystem.Visible = false
+UICorner_4.Parent = KeySystem
+Key.Name = "Key"
+Key.Parent = KeySystem
+Key.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Key.BackgroundTransparency = 0.600
+Key.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Key.BorderSizePixel = 0
+Key.Position = UDim2.new(0.0733333305, 0, 0.533333421, 0)
+Key.Size = UDim2.new(0.666666687, 0, 0.196721315, 0)
+Key.Font = Enum.Font.SourceSans
+Key.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+Key.PlaceholderText = "********"
+Key.Text = ""
+Key.TextColor3 = Color3.fromRGB(178, 178, 178)
+Key.TextScaled = true
+Key.TextSize = 14.000
+Key.TextWrapped = true
+UICorner_5.Parent = Key
+Title.Name = "Title"
+Title.Parent = KeySystem
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.0733333305, 0, 0.0573770478, 0)
+Title.Size = UDim2.new(0.666666687, 0, 0.352459013, 0)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "ENTER KEY"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+Check.Name = "Check"
+Check.Parent = KeySystem
+Check.BackgroundColor3 = Color3.fromRGB(255, 0, 4)
+Check.BackgroundTransparency = 1.000
+Check.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Check.BorderSizePixel = 0
+Check.Position = UDim2.new(0.786666691, 0, 0.525137007, 0)
+Check.Size = UDim2.new(0.163333327, 0, 0.401639581, 0)
+Check.Image = "rbxassetid://14562122532"
+UICorner_6.Parent = Check
+Retrieve.Name = "Retrieve"
+Retrieve.Parent = KeySystem
+Retrieve.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Retrieve.BackgroundTransparency = 0.700
+Retrieve.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Retrieve.BorderSizePixel = 0
+Retrieve.Position = UDim2.new(0.0733333305, 0, 0.76284188, 0)
+Retrieve.Size = UDim2.new(0.666666687, 0, 0.172131151, 0)
+Retrieve.Font = Enum.Font.SourceSansBold
+Retrieve.Text = "GET KEY"
+Retrieve.TextColor3 = Color3.fromRGB(255, 255, 255)
+Retrieve.TextScaled = true
+Retrieve.TextSize = 14.000
+Retrieve.TextWrapped = true
+UICorner_7.Parent = Retrieve
+Background.Name = "Background"
+Background.Parent = KeySystem
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BackgroundTransparency = 1.000
+Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Background.BorderSizePixel = 0
+Background.Size = UDim2.new(1, 0, 1, 0)
+Background.ZIndex = 0
+Background.ImageTransparency = 0.610
+UICorner_8.Parent = Background
+local function ILVAJ_fake_script() -- System.Controller 
+	local script = Instance.new('LocalScript', System)
+	local TeleportService = game:GetService("TeleportService")
+	local Players = game:GetService("Players")
+	local Vim = game:GetService("VirtualInputManager")
+	local Player = Players.LocalPlayer
+	local GUI = script.Parent
+	local KeySystem = GUI:WaitForChild("KeySystem")
+	local CheckButton = KeySystem:WaitForChild("Check")
+	local GetKeyButton = KeySystem:WaitForChild("Retrieve")
+	local KeyTextbox = KeySystem:WaitForChild("Key")
+	local KeyBackground = KeySystem:WaitForChild("Background")
+	local ACCESS_CODE = loadstring(game:HttpGet("https://raw.githubusercontent.com/ponyo7742-cyber/Testing/refs/heads/main/KeyCode"))()
+	local RandomBackgrounds = {"rbxassetid://8153824697", "rbxassetid://10056462700", "rbxassetid://17858351415", "rbxassetid://911295583","rbxassetid://9083332688"}
+	KeyBackground.Image = RandomBackgrounds[math.random(1,#RandomBackgrounds)]
+	local Main = GUI:WaitForChild("Main")
+	local Autofarm_Button = Main:WaitForChild("AutoFarmButton")
+	local RapidFire_Button = Main:WaitForChild("RapidFireButton")
+	local Gems = Main:WaitForChild("Gems")
+	local Kills = Main:WaitForChild("Kills")
+	local UpdateLoadstring = false
+	if _G.RunningGui then UpdateLoadstring = true _G.RunningGui:Destroy() end
+	_G.RunningGui = GUI
+	_G.AutofarmScripts = false
+	_G.RapidfireScripts = false
+	local AutofarmClickCooldown = false
+	function simulateMouseClick()
+		if not _G.AutofarmScripts then return end
+		if AutofarmClickCooldown then return end
+		AutofarmClickCooldown = true
+		Vim:SendMouseButtonEvent(10, 10, 0, true, game, 0)
+		Vim:SendMouseButtonEvent(10, 10, 0, false, game, 0)
+		spawn(function()
+			task.wait(0.5)
+			AutofarmClickCooldown = false
+		end)
+	end
+	function Kill()
+		CheckForAdmins()
+		if not _G.AutofarmScripts then return end
+		task.spawn(function()
+			local Char = Player.Character or Player.CharacterAdded:Wait()
+			local HRP = Char:WaitForChild("HumanoidRootPart")
+			local Humanoid = Char:WaitForChild("Humanoid")
+	
+			HRP.CFrame = workspace.Spawn.SpawnLocation.CFrame + Vector3.new(0, 50, 0)
+	
+			local Knife = Char:FindFirstChild("Knife") or Player.Backpack:WaitForChild("Knife")
+			if not Char:FindFirstChild("Knife") then
+				Humanoid:EquipTool(Knife)
+			end
+	
+			local TargetName = Player:WaitForChild("PlayerGui"):WaitForChild("GameUI")
+				:WaitForChild("HUD"):WaitForChild("TargetUI")
+				:WaitForChild("TargetHolder"):WaitForChild("TargetName")
+	
+			if _G.Connection then
+				_G.Connection:Disconnect()
+			end
+	
+			local function CanTeleportTo(plr)
+				if not plr then return false end
+				local char = plr.Character
+				if not (char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")) then return false end
+				if char.Humanoid.Health <= 0 then return false end
+				if char:FindFirstChild("ForceField") then return false end
+				local appearance = char:FindFirstChild("AppearanceLoaded")
+				if not (appearance and appearance.Value == true) then return false end
+				local HasWeapon = false
+				if plr.Backpack:FindFirstChild("Knife") or plr.Backpack:FindFirstChild("Revolver") then HasWeapon = true end 
+				if not HasWeapon then return false end
+				return true
+			end
+	
+			local function TeleportTo(plr)
+				if not _G.AutofarmScripts then return end
+				local rootPart = plr.Character.HumanoidRootPart
+				HRP.CFrame = rootPart.CFrame - rootPart.CFrame.LookVector * 2 + Vector3.new(0, 3, 0)
+				rootPart.Size = Vector3.new(15, 15, 15)
+				rootPart.Transparency = 0.5
+				simulateMouseClick()
+			end
+	
+			local function GetRandomValidPlayer()
+				local candidates = {}
+				for _, plr in ipairs(Players:GetPlayers()) do
+					if plr ~= Player and CanTeleportTo(plr) then
+						table.insert(candidates, plr)
+					end
+				end
+				if #candidates > 0 then
+					return candidates[math.random(1, #candidates)]
+				end
+				return nil
+			end
+	
+			local function RunKillLoop(targetPlr)
+				if not targetPlr or not CanTeleportTo(targetPlr) then return false end
+	
+				local dead = false
+				local humanoid = targetPlr.Character:FindFirstChild("Humanoid")
+	
+				local deathConn
+				deathConn = humanoid.Died:Connect(function()
+					dead = true
+					deathConn:Disconnect()
+				end)
+	
+				while not dead and CanTeleportTo(targetPlr) do
+					TeleportTo(targetPlr)
+					task.wait(0.1)
+					if not _G.AutofarmScripts then break end
+				end
+	
+				return true
+			end
+	
+			_G.Connection = TargetName.Changed:Connect(function()
+				HRP.CFrame = workspace.Spawn.SpawnLocation.CFrame + Vector3.new(0, 50, 0)
+				_G.Connection:Disconnect()
+				_G.Connection = nil
+				Kill() 
+			end)
+	
+			while _G.Connection do
+				local targetPlayer = Players:FindFirstChild(TargetName.Text)
+	
+				if CanTeleportTo(targetPlayer) then
+					RunKillLoop(targetPlayer)
+				else
+					local success = false
+					repeat
+						local randomPlr = GetRandomValidPlayer()
+						if randomPlr then
+							success = RunKillLoop(randomPlr)
+						end
+						task.wait(0.5)
+						targetPlayer = Players:FindFirstChild(TargetName.Text)
+						if not _G.AutofarmScripts then break end
+					until CanTeleportTo(targetPlayer)
+				end
+				task.wait(0.1)
+			end
+		end)
+	end
+	function extractNumbers(input)
+		input = input:match("^%s*(.-)%s*$")
+		return input:gsub("[^%d]", "")
+	end
+	function ServerHop()
+		local placeId = game.PlaceId
+		TeleportService:Teleport(placeId)
+	end
+	function CheckForAdmins()
+		local FoundHigherAuthority = false
+	
+		for i, OtherPlayer in game.Players:GetPlayers() do
+			if OtherPlayer.Name == Player.Name then continue end
+			if OtherPlayer:IsInGroup(7513662) then
+				local rank = OtherPlayer:GetRoleInGroup(7513662)
+				if rank ~= "Fans" then
+					FoundHigherAuthority = true
+					break
+				end
+			end	
+		end
+	
+		if FoundHigherAuthority then ServerHop() end
+	end
+	Player.CharacterAdded:Connect(function(Char)
+		if _G.AutofarmScripts then Kill() end
+	end)
+	local RevolverModule = require(game:GetService("ReplicatedStorage").GameContent.RevolverContent.RevolverClasses.RevolverClass.ClassData) -- however they get it
+	local GemBar = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Interface.BottomBar.GemCounter.Amount
+	local PreviousAmountOfGems = extractNumbers(GemBar.Text)
+	repeat wait() until GemBar.Text ~= "2,140" 
+	local KillAmount = 0
+	function GUIFunction()
+		Main.Visible = true
+		Autofarm_Button.MouseButton1Click:Connect(function()
+			_G.AutofarmScripts = not _G.AutofarmScripts
+			Kill()
+			if _G.AutofarmScripts then
+				Autofarm_Button.Text = "AUTOFARM STATUS : ON"
+			else
+				Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
+			end
+		end)
+	
+		RapidFire_Button.MouseButton1Click:Connect(function()
+			if not _G.RapidfireScripts then
+				RevolverModule.WeaponSettings.FireDelay = 0.55 
+				RevolverModule.WeaponSettings.ReloadTime = 0.01 
+				RevolverModule.WeaponSettings.EquipAnimationSpeed = 0.01
+				RevolverModule.WeaponSettings.EquipTime = 0.01
+				RevolverModule.WeaponSettings.FireAnimationSpeed = 0.1
+				RevolverModule.WeaponSettings.ReloadAmmoThreshhold = 0.05
+				RevolverModule.WeaponSettings.ReloadAnimationSpeed = 0.4
+				RevolverModule.WeaponSettings.LoadCapacity = 3
+				_G.RapidfireScripts = true
+				RapidFire_Button.Text = "RAPID FIRE STATUS : ON"
+			else
+				RevolverModule.WeaponSettings.FireDelay = 1.3333333 
+				RevolverModule.WeaponSettings.ReloadTime = 2
+				RevolverModule.WeaponSettings.EquipAnimationSpeed = 0.9
+				RevolverModule.WeaponSettings.EquipTime = 0.5
+				RevolverModule.WeaponSettings.FireAnimationSpeed = 0.8
+				RevolverModule.WeaponSettings.ReloadAmmoThreshhold = 0.125
+				RevolverModule.WeaponSettings.ReloadAnimationSpeed = 1.75
+				RevolverModule.WeaponSettings.LoadCapacity = 3
+				_G.RapidfireScripts = false
+				RapidFire_Button.Text = "RAPID FIRE STATUS : OFF"
+			end
+		end)
+	
+		GemBar.Changed:Connect(function()
+			if not _G.AutofarmScripts then return end
+			Gems.Text =  "GEMS EARNED : ".. tostring(extractNumbers(GemBar.Text) - PreviousAmountOfGems)..""
+		end)
+	
+		game:GetService("Players").LocalPlayer.leaderstats.Kills.Changed:Connect(function()
+			if not _G.AutofarmScripts then return end
+			KillAmount += 1
+			Kills.Text = "KILLS EARNED : "..tostring(KillAmount)..""
+		end)
+	
+		if KeySystem and KeySystem.Parent then
+			KeySystem:Destroy()
+		end
+	end
+	GetKeyButton.MouseButton1Click:Connect(function()
+		setclipboard(tostring("https://direct-link.net/1133165/q2WvTJ3pmUrl"))
+		GetKeyButton.Text = "COPIED!"
+		wait(1)
+		GetKeyButton.Text = "GET KEY"
+	end)
+	if UpdateLoadstring then
+		GUIFunction()
+	else
+		KeySystem.Visible = true
+	end
+	CheckButton.MouseButton1Click:Connect(function()
+		if KeyTextbox.Text == ACCESS_CODE and not UpdateLoadstring then
+			GUIFunction()
+		end
+	end)
+end
+coroutine.wrap(ILVAJ_fake_script)()
