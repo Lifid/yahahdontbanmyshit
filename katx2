@@ -193,7 +193,7 @@ local function ILVAJ_fake_script() -- System.Controller
 	local GetKeyButton = KeySystem:WaitForChild("Retrieve")
 	local KeyTextbox = KeySystem:WaitForChild("Key")
 	local KeyBackground = KeySystem:WaitForChild("Background")
-	local ACCESS_CODE = loadstring(game:HttpGet("https://raw.githubusercontent.com/ponyo7742-cyber/Testing/refs/heads/main/KeyCode"))()
+	local ACCESS_CODE = 1234
 	local RandomBackgrounds = {"rbxassetid://8153824697", "rbxassetid://10056462700", "rbxassetid://17858351415", "rbxassetid://911295583","rbxassetid://9083332688"}
 	KeyBackground.Image = RandomBackgrounds[math.random(1,#RandomBackgrounds)]
 	local Main = GUI:WaitForChild("Main")
