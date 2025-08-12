@@ -233,7 +233,7 @@ local function QHLHJF_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "1234"
+	local ACCESS_CODE = "11223344"
 	--[[
 	
 	
