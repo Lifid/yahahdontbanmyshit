@@ -524,7 +524,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 														ClientSound.SoundId = "rbxassetid://120959566661842"
 														ClientSound.Volume = 1000000000000000000
 														ClientSound:Play()
-														wait(ClientSound.Length)
+														wait(3)
 														ClientSound:Destroy()
 													end)
 													
