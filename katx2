@@ -6,13 +6,13 @@
 local System = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
-local Gems = Instance.new("TextLabel")
-local Kills = Instance.new("TextLabel")
 local AutoFarmButton = Instance.new("TextButton")
 local UICorner_2 = Instance.new("UICorner")
-local Creds = Instance.new("TextLabel")
-local RapidFireButton = Instance.new("TextButton")
+local ServerHopButton = Instance.new("TextButton")
 local UICorner_3 = Instance.new("UICorner")
+local Creds = Instance.new("TextLabel")
+local Background = Instance.new("ImageLabel")
+local Version = Instance.new("TextLabel")
 local KeySystem = Instance.new("Frame")
 local UICorner_4 = Instance.new("UICorner")
 local Key = Instance.new("TextBox")
@@ -22,7 +22,7 @@ local Check = Instance.new("ImageButton")
 local UICorner_6 = Instance.new("UICorner")
 local Retrieve = Instance.new("TextButton")
 local UICorner_7 = Instance.new("UICorner")
-local Background = Instance.new("ImageLabel")
+local Background_2 = Instance.new("ImageLabel")
 local UICorner_8 = Instance.new("UICorner")
 
 --Properties:
@@ -38,41 +38,12 @@ Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Main.BackgroundTransparency = 0.650
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.809005439, 0, 0.650662243, 0)
-Main.Size = UDim2.new(0.185551703, 0, 0.324503303, 0)
+Main.LayoutOrder = 1
+Main.Position = UDim2.new(0.809005439, 0, 0.762763023, 0)
+Main.Size = UDim2.new(0.185551703, 0, 0.212402552, 0)
 Main.Visible = false
 
 UICorner.Parent = Main
-
-Gems.Name = "Gems"
-Gems.Parent = Main
-Gems.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Gems.BackgroundTransparency = 1.000
-Gems.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Gems.BorderSizePixel = 0
-Gems.Position = UDim2.new(0.166666672, 0, 0.654148638, 0)
-Gems.Size = UDim2.new(0.666666687, 0, 0.255102038, 0)
-Gems.Font = Enum.Font.SourceSansBold
-Gems.Text = "GEMS EARNED : 0"
-Gems.TextColor3 = Color3.fromRGB(255, 255, 255)
-Gems.TextScaled = true
-Gems.TextSize = 14.000
-Gems.TextWrapped = true
-
-Kills.Name = "Kills"
-Kills.Parent = Main
-Kills.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Kills.BackgroundTransparency = 1.000
-Kills.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Kills.BorderSizePixel = 0
-Kills.Position = UDim2.new(0.166666672, 0, 0.433088034, 0)
-Kills.Size = UDim2.new(0.666666687, 0, 0.255102038, 0)
-Kills.Font = Enum.Font.SourceSansBold
-Kills.Text = "KILLS EARNED : 0"
-Kills.TextColor3 = Color3.fromRGB(255, 255, 255)
-Kills.TextScaled = true
-Kills.TextSize = 14.000
-Kills.TextWrapped = true
 
 AutoFarmButton.Name = "AutoFarmButton"
 AutoFarmButton.Parent = Main
@@ -80,8 +51,9 @@ AutoFarmButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 AutoFarmButton.BackgroundTransparency = 0.850
 AutoFarmButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 AutoFarmButton.BorderSizePixel = 0
-AutoFarmButton.Position = UDim2.new(0.0233333334, 0, 0.0306122452, 0)
-AutoFarmButton.Size = UDim2.new(0.956666648, 0, 0.168367341, 0)
+AutoFarmButton.LayoutOrder = 2
+AutoFarmButton.Position = UDim2.new(0.0199999996, 0, 0.110139839, 0)
+AutoFarmButton.Size = UDim2.new(0.956666648, 0, 0.327422947, 0)
 AutoFarmButton.Font = Enum.Font.SourceSansBold
 AutoFarmButton.Text = "AUTOFARM STATUS : OFF"
 AutoFarmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -91,37 +63,66 @@ AutoFarmButton.TextWrapped = true
 
 UICorner_2.Parent = AutoFarmButton
 
+ServerHopButton.Name = "ServerHopButton"
+ServerHopButton.Parent = Main
+ServerHopButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ServerHopButton.BackgroundTransparency = 0.850
+ServerHopButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ServerHopButton.BorderSizePixel = 0
+ServerHopButton.LayoutOrder = 2
+ServerHopButton.Position = UDim2.new(0.0199999996, 0, 0.56216234, 0)
+ServerHopButton.Size = UDim2.new(0.956666648, 0, 0.327422917, 0)
+ServerHopButton.Font = Enum.Font.SourceSansBold
+ServerHopButton.Text = "SERVER HOP"
+ServerHopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ServerHopButton.TextScaled = true
+ServerHopButton.TextSize = 14.000
+ServerHopButton.TextWrapped = true
+
+UICorner_3.Parent = ServerHopButton
+
 Creds.Name = "Creds"
 Creds.Parent = Main
 Creds.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Creds.BackgroundTransparency = 1.000
 Creds.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Creds.BorderSizePixel = 0
-Creds.Position = UDim2.new(0, 0, 0.909250677, 0)
-Creds.Size = UDim2.new(1, 0, 0.0867346972, 0)
-Creds.Font = Enum.Font.SourceSans
-Creds.Text = "hi made by dabitob on disc"
-Creds.TextColor3 = Color3.fromRGB(0, 0, 0)
+Creds.LayoutOrder = 2
+Creds.Position = UDim2.new(0, 0, -0.361168414, 0)
+Creds.Size = UDim2.new(1, 0, 0.354259878, 0)
+Creds.Font = Enum.Font.SourceSansBold
+Creds.Text = "hi made by dabitob on discord"
+Creds.TextColor3 = Color3.fromRGB(255, 255, 255)
 Creds.TextScaled = true
 Creds.TextSize = 14.000
 Creds.TextWrapped = true
 
-RapidFireButton.Name = "RapidFireButton"
-RapidFireButton.Parent = Main
-RapidFireButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-RapidFireButton.BackgroundTransparency = 0.850
-RapidFireButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
-RapidFireButton.BorderSizePixel = 0
-RapidFireButton.Position = UDim2.new(0.0199999996, 0, 0.229591832, 0)
-RapidFireButton.Size = UDim2.new(0.956666648, 0, 0.168367341, 0)
-RapidFireButton.Font = Enum.Font.SourceSansBold
-RapidFireButton.Text = "RAPID FIRE STATUS : OFF"
-RapidFireButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-RapidFireButton.TextScaled = true
-RapidFireButton.TextSize = 14.000
-RapidFireButton.TextWrapped = true
+Background.Name = "Background"
+Background.Parent = Main
+Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background.BackgroundTransparency = 1.000
+Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Background.BorderSizePixel = 0
+Background.Size = UDim2.new(1, 0, 0.99771148, 0)
+Background.ZIndex = 0
+Background.Image = "rbxassetid://122354736220591"
+Background.ImageTransparency = 0.890
 
-UICorner_3.Parent = RapidFireButton
+Version.Name = "Version"
+Version.Parent = Main
+Version.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Version.BackgroundTransparency = 1.000
+Version.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Version.BorderSizePixel = 0
+Version.LayoutOrder = 2
+Version.Position = UDim2.new(0, 0, 0.99771148, 0)
+Version.Size = UDim2.new(1, 0, 0.115997948, 0)
+Version.Font = Enum.Font.SourceSansBold
+Version.Text = "version : sigma"
+Version.TextColor3 = Color3.fromRGB(255, 255, 255)
+Version.TextScaled = true
+Version.TextSize = 14.000
+Version.TextWrapped = true
 
 KeySystem.Name = "KeySystem"
 KeySystem.Parent = System
@@ -198,27 +199,26 @@ Retrieve.TextWrapped = true
 
 UICorner_7.Parent = Retrieve
 
-Background.Name = "Background"
-Background.Parent = KeySystem
-Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Background.BackgroundTransparency = 1.000
-Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Background.BorderSizePixel = 0
-Background.Size = UDim2.new(1, 0, 1, 0)
-Background.ZIndex = 0
-Background.ImageTransparency = 0.610
+Background_2.Name = "Background"
+Background_2.Parent = KeySystem
+Background_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Background_2.BackgroundTransparency = 1.000
+Background_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Background_2.BorderSizePixel = 0
+Background_2.Size = UDim2.new(1, 0, 1, 0)
+Background_2.ZIndex = 0
+Background_2.ImageTransparency = 0.610
 
-UICorner_8.Parent = Background
+UICorner_8.Parent = Background_2
 
 -- Scripts:
 
-local function QHLHJF_fake_script() -- System.Controller 
+local function CHZJEZU_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
 	local Players = game:GetService("Players")
-	local Vim = game:GetService("VirtualInputManager")
-	local Player = Players.LocalPlayer
+	local LocalPlayer = Players.LocalPlayer
 	
 	local GUI = script.Parent
 	local KeySystem = GUI:WaitForChild("KeySystem")
@@ -233,7 +233,7 @@ local function QHLHJF_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "11223344"
+	local ACCESS_CODE = "0987654321"
 	--[[
 	
 	
@@ -245,143 +245,26 @@ local function QHLHJF_fake_script() -- System.Controller
 	
 	local Main = GUI:WaitForChild("Main")
 	local Autofarm_Button = Main:WaitForChild("AutoFarmButton")
-	local RapidFire_Button = Main:WaitForChild("RapidFireButton")
-	local Gems = Main:WaitForChild("Gems")
-	local Kills = Main:WaitForChild("Kills")
+	local ServerHop_Buttn = Main:WaitForChild("ServerHopButton")
 	
 	if _G.RunningGui then _G.RunningGui:Destroy() end
 	
 	_G.RunningGui = GUI
 	
-	_G.AutofarmScripts = false
-	_G.RapidfireScripts = false
+	_G.AutofarmScriptRunning = _G.AutofarmScriptRunning or false
+	_G.AutofarmFuncsRan = _G.AutofarmFuncsRan or false
+	
 	
 	local AutofarmClickCooldown = false
 	
-	function simulateMouseClick()
-		if not _G.AutofarmScripts then return end
-		if AutofarmClickCooldown then return end
-		AutofarmClickCooldown = true
-		Vim:SendMouseButtonEvent(10, 10, 0, true, game, 0)
-		Vim:SendMouseButtonEvent(10, 10, 0, false, game, 0)
-		spawn(function()
-			task.wait(0.5)
-			AutofarmClickCooldown = false
-		end)
-	end
-	
-	function Kill()
-		CheckForAdmins()
-		if not _G.AutofarmScripts then return end
-		task.spawn(function()
-			local Char = Player.Character or Player.CharacterAdded:Wait()
-			local HRP = Char:WaitForChild("HumanoidRootPart")
-			local Humanoid = Char:WaitForChild("Humanoid")
-	
-			HRP.CFrame = workspace.Spawn.SpawnLocation.CFrame + Vector3.new(0, 50, 0)
-	
-			local Knife = Char:FindFirstChild("Knife") or Player.Backpack:WaitForChild("Knife")
-			if not Char:FindFirstChild("Knife") then
-				Humanoid:EquipTool(Knife)
-			end
-	
-			local TargetName = Player:WaitForChild("PlayerGui"):WaitForChild("GameUI")
-				:WaitForChild("HUD"):WaitForChild("TargetUI")
-				:WaitForChild("TargetHolder"):WaitForChild("TargetName")
-	
-			if _G.Connection then
-				_G.Connection:Disconnect()
-			end
-	
-			local function CanTeleportTo(plr)
-				if not plr then return false end
-				local char = plr.Character
-				if not (char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")) then return false end
-				if char.Humanoid.Health <= 0 then return false end
-				if char:FindFirstChild("ForceField") then return false end
-				local appearance = char:FindFirstChild("AppearanceLoaded")
-				if not (appearance and appearance.Value == true) then return false end
-				local HasWeapon = false
-				if plr.Backpack:FindFirstChild("Knife") or plr.Backpack:FindFirstChild("Revolver") then HasWeapon = true end 
-				if not HasWeapon then return false end
-				return true
-			end
-	
-			local function TeleportTo(plr)
-				if not _G.AutofarmScripts then return end
-				local rootPart = plr.Character.HumanoidRootPart
-				HRP.CFrame = rootPart.CFrame - rootPart.CFrame.LookVector * 2 + Vector3.new(0, 3, 0)
-				rootPart.Size = Vector3.new(15, 15, 15)
-				rootPart.Transparency = 0.5
-				simulateMouseClick()
-			end
-	
-			local function GetRandomValidPlayer()
-				local candidates = {}
-				for _, plr in ipairs(Players:GetPlayers()) do
-					if plr ~= Player and CanTeleportTo(plr) then
-						table.insert(candidates, plr)
-					end
-				end
-				if #candidates > 0 then
-					return candidates[math.random(1, #candidates)]
-				end
-				return nil
-			end
-	
-			local function RunKillLoop(targetPlr)
-				if not targetPlr or not CanTeleportTo(targetPlr) then return false end
-	
-				local dead = false
-				local humanoid = targetPlr.Character:FindFirstChild("Humanoid")
-	
-				local deathConn
-				deathConn = humanoid.Died:Connect(function()
-					dead = true
-					deathConn:Disconnect()
-				end)
-	
-				while not dead and CanTeleportTo(targetPlr) do
-					TeleportTo(targetPlr)
-					task.wait(0.1)
-					if not _G.AutofarmScripts then break end
-				end
-	
-				return true
-			end
-	
-			_G.Connection = TargetName.Changed:Connect(function()
-				HRP.CFrame = workspace.Spawn.SpawnLocation.CFrame + Vector3.new(0, 50, 0)
-				_G.Connection:Disconnect()
-				_G.Connection = nil
-				Kill() 
-			end)
-	
-			while _G.Connection do
-				local targetPlayer = Players:FindFirstChild(TargetName.Text)
-	
-				if CanTeleportTo(targetPlayer) then
-					RunKillLoop(targetPlayer)
-				else
-					local success = false
-					repeat
-						local randomPlr = GetRandomValidPlayer()
-						if randomPlr then
-							success = RunKillLoop(randomPlr)
-						end
-						task.wait(0.5)
-						targetPlayer = Players:FindFirstChild(TargetName.Text)
-						if not _G.AutofarmScripts then break end
-					until CanTeleportTo(targetPlayer)
-				end
-				task.wait(0.1)
-			end
-		end)
-	end
-	
-	function extractNumbers(input)
-		input = input:match("^%s*(.-)%s*$")
-		return input:gsub("[^%d]", "")
+	function SendNotification(GTitle, GText, GIcon, GDuration, GButton)
+		game.StarterGui:SetCore("SendNotification", {
+			Title = GTitle;
+			Text = GText;
+			Icon = GIcon;
+			Duration = GDuration;
+			Button1 = GButton;
+		})
 	end
 	
 	function ServerHop()
@@ -406,67 +289,288 @@ local function QHLHJF_fake_script() -- System.Controller
 		if FoundHigherAuthority then ServerHop() end
 	end
 	
-	Player.CharacterAdded:Connect(function(Char)
-		if _G.AutofarmScripts then Kill() end
-	end)
-	
-	local RevolverModule = require(game:GetService("ReplicatedStorage").GameContent.RevolverContent.RevolverClasses.RevolverClass.ClassData) -- however they get it
-	local GemBar = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Interface.BottomBar.GemCounter.Amount
-	local PreviousAmountOfGems = extractNumbers(GemBar.Text)
-	
-	--Safety 
-	repeat wait() until GemBar.Text ~= "2,140" 
-	
-	local KillAmount = 0
-	
 	function GUIFunction()
 		Main.Visible = true
 		Autofarm_Button.MouseButton1Click:Connect(function()
-			_G.AutofarmScripts = not _G.AutofarmScripts
-			Kill()
-			if _G.AutofarmScripts then
+			if AutofarmClickCooldown then return end
+			AutofarmClickCooldown = true
+			spawn(function()
+				wait(3)
+				AutofarmClickCooldown = false
+			end)
+			
+			if LocalPlayer.Character:FindFirstChild("Humanoid") then
+				_G.AutofarmScriptRunning = not _G.AutofarmScriptRunning
+				LocalPlayer.Character:FindFirstChild("Humanoid").Health = 0
+			else
+				return
+			end
+			
+			if _G.AutofarmScriptRunning then
 				Autofarm_Button.Text = "AUTOFARM STATUS : ON"
+				if not _G.AutofarmFunsRan then
+					_G.AutofarmFunsRan = true
+					spawn(function()
+	
+						local Players = game:GetService("Players")
+						local LocalPlayer = Players.LocalPlayer
+	
+						_G.PhonkSounds = {
+							[1] = {Audio = "rbxassetid://107424491541808", Length = 136},
+							--[2] = {Audio = "rbxassetid://94017327845820", Length = 97},
+							-- Add more here
+						}
+	
+						-- Globals
+						_G.SoundEndTime = _G.SoundEndTime or 0
+						_G.LoopingPhonk = _G.LoopingPhonk or false
+	
+						local function playRandomSound()
+							local chosen = _G.PhonkSounds[math.random(1, #_G.PhonkSounds)]
+	
+							local args = {
+								"PlaySound",
+								{
+									"Equip",
+									"Roblox",
+									chosen.Audio,
+									{workspace}, -- Parent of Sound
+									10000000000000000000000 -- Volume
+								}
+							}
+	
+							local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") 
+								or LocalPlayer.Backpack:FindFirstChild("Knife")
+	
+							if Knife and _G.AutofarmScriptRunning then
+								Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+								
+								--LOCAL SOUND
+								spawn(function()
+									local ClientSound = Instance.new("Sound", workspace)
+									ClientSound.SoundId = chosen.Audio
+									ClientSound.Volume = 10000000000000000000000
+									ClientSound:Play()
+									wait(chosen.Length)
+									ClientSound:Destroy()
+								end)
+								
+								
+								_G.SoundEndTime = tick() + chosen.Length
+							end
+						end
+	
+	
+						-- Global loop
+						if not _G.LoopingPhonk then
+							_G.LoopingPhonk = true
+							task.spawn(function()
+								while _G.LoopingPhonk do
+									if tick() >= _G.SoundEndTime then
+										playRandomSound()
+									end
+									task.wait(1)
+								end
+							end)
+						end
+	
+	
+						if _G.AutofarmScriptRunning then
+							local Anim1 = Instance.new("Animation")
+							Anim1.AnimationId = "rbxassetid://282574440"
+							local track1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim1)
+							track1:Play(.1, 1, 1)
+	
+							local Anim2 = Instance.new("Animation")
+							Anim2.AnimationId = "rbxassetid://126753849"
+							local track2 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim2)
+							track2.Priority = Enum.AnimationPriority.Action4
+							track2.Looped = true
+							track2:Play(.1, 1, 3)
+	
+							game.Players.LocalPlayer.Character.Humanoid.HipHeight = 5
+						end
+	
+	
+						-- Respawn detection
+						LocalPlayer.CharacterAdded:Connect(function()
+							if not _G.AutofarmScriptRunning then return end
+							task.wait(1) -- let character load
+							-- Don’t reset timer — just try replaying if song is still supposed to be running
+							if tick() < _G.SoundEndTime then
+								playRandomSound()
+							end
+	
+							spawn(function()
+								local Anim1 = Instance.new("Animation")
+								Anim1.AnimationId = "rbxassetid://282574440"
+								local track1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim1)
+								track1:Play(.1, 1, 1)
+	
+								local Anim2 = Instance.new("Animation")
+								Anim2.AnimationId = "rbxassetid://126753849"
+								local track2 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim2)
+								track2.Priority = Enum.AnimationPriority.Action4
+								track2.Looped = true
+								track2:Play(.1, 1, 3)
+	
+								game.Players.LocalPlayer.Character.Humanoid.HipHeight = 5
+							end)
+	
+						end)
+					end)
+	
+					spawn(function()
+						local LocalPlayer = game.Players.LocalPlayer
+	
+						local function KillLoop()
+							spawn(function()
+								while _G.AutofarmScriptRunning do task.wait() 
+	
+									local function CanTeleportTo(plr)
+										if not plr then return false end
+										local char = plr.Character
+										if not (char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")) then return false end
+										if char.Humanoid.Health <= 0 then return false end
+										if char:FindFirstChild("ForceField") then return false end
+										local appearance = char:FindFirstChild("AppearanceLoaded")
+										if not (appearance and appearance.Value == true) then return false end
+										local HasWeapon = false
+										if plr.Backpack:FindFirstChild("Knife") or plr.Backpack:FindFirstChild("Revolver") then HasWeapon = true end 
+										if not HasWeapon then return false end
+										return true
+									end
+	
+									local function TeleportTo(plr)
+	
+										local HRP = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+										local rootPart = plr.Character.HumanoidRootPart
+										HRP.CFrame = rootPart.CFrame - rootPart.CFrame.LookVector * 4.5 + Vector3.new(0, 6, 0)
+										rootPart.Size = Vector3.new(15, 15, 15)
+										rootPart.Transparency = 1
+									end
+	
+									for i, Player in game.Players:GetPlayers() do
+										if Player.Name == LocalPlayer.Name then continue end
+										if CanTeleportTo(Player) and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+											TeleportTo(Player)
+											if _G.KillRemoteCooldown then break end
+											local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife")
+											if Player.Character:FindFirstChild("Humanoid") and Player.Character.Humanoid.Health ~= 0 and Knife then
+	
+												local args = {
+													"StartCharge",
+													{}
+												}
+												Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+												local HRP = LocalPlayer.Character.HumanoidRootPart
+												local HRP2 = Player.Character.HumanoidRootPart
+	
+												for _, obj in ipairs(getgc(true)) do
+													if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+														print("Found variable:", obj.attackIDCounter)
+														obj.attackIDCounter = obj.attackIDCounter + 1
+														_G.ScriptAttackID = obj.attackIDCounter
+													end
+												end
+												local args1 = {
+													"ChargeRelease",
+													{
+														0,
+														true,
+														--vector.create(HRP.Position.X,HRP.Position.Y,HRP.Position.Z),
+														vector.create(HRP2.Position.X, HRP2.Position.Y, HRP2.Position.Z),
+														vector.create(HRP2.Position.X, HRP2.Position.Y, HRP2.Position.Z),
+														{},
+														_G.ScriptAttackID
+													}
+												}
+												Knife:WaitForChild("ClientEvent"):FireServer(unpack(args1))
+	
+												local args2 = {
+													{
+														DamageType = "Knife",
+														attackID = _G.ScriptAttackID,
+														IsHeadshot = false,
+														HitVelocity = vector.create(0,100,0),
+														Damage = 100,
+														WeaponSkin = "BanHammer",
+														AttackType = "KnifeThrow",
+														PowerName = "GhostKnifePower",
+														TargetHumanoid = HRP2.Parent.Humanoid,
+														hitPart = "Head",
+														HitPoint = HRP2.CFrame,
+														TargetCharacter = HRP2.Parent
+													}
+												}
+												game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args2))
+	
+												local args = {
+													"PlaySound",
+													{
+														"Equip",
+														"Roblox",
+														"rbxassetid://120959566661842",
+														{HRP}, -- Parent of Sound
+														1000000000000000000 -- Volume
+													}
+												}
+	
+												if Knife then
+													
+													--LOCAL SOUND
+													spawn(function()
+														local ClientSound = Instance.new("Sound", HRP)
+														ClientSound.SoundId = "rbxassetid://120959566661842"
+														ClientSound.Volume = 1000000000000000000
+														ClientSound:Play()
+														wait(ClientSound.Length)
+														ClientSound:Destroy()
+													end)
+													
+													Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+												end
+	
+	
+	
+												_G.KillRemoteCooldown = true
+												spawn(function()
+													wait(0.25)
+													_G.KillRemoteCooldown = false
+												end)
+											end
+	
+										end
+	
+									end 
+	
+								end
+							end)
+						end
+	
+						if _G.AutofarmScriptRunning then
+							KillLoop()
+						end
+	
+	
+						LocalPlayer.CharacterAdded:Connect(function()
+							if _G.AutofarmScriptRunning then
+								KillLoop()
+							end
+						end)
+	
+					end)
+	
+				end
 			else
 				Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
 			end
 		end)
 	
-		RapidFire_Button.MouseButton1Click:Connect(function()
-			if not _G.RapidfireScripts then
-				RevolverModule.WeaponSettings.FireDelay = 0.55 
-				RevolverModule.WeaponSettings.ReloadTime = 0.01 
-				RevolverModule.WeaponSettings.EquipAnimationSpeed = 0.01
-				RevolverModule.WeaponSettings.EquipTime = 0.01
-				RevolverModule.WeaponSettings.FireAnimationSpeed = 0.1
-				RevolverModule.WeaponSettings.ReloadAmmoThreshhold = 0.05
-				RevolverModule.WeaponSettings.ReloadAnimationSpeed = 0.4
-				RevolverModule.WeaponSettings.LoadCapacity = 3
-				_G.RapidfireScripts = true
-				RapidFire_Button.Text = "RAPID FIRE STATUS : ON"
-			else
-				RevolverModule.WeaponSettings.FireDelay = 1.3333333 
-				RevolverModule.WeaponSettings.ReloadTime = 2
-				RevolverModule.WeaponSettings.EquipAnimationSpeed = 0.9
-				RevolverModule.WeaponSettings.EquipTime = 0.5
-				RevolverModule.WeaponSettings.FireAnimationSpeed = 0.8
-				RevolverModule.WeaponSettings.ReloadAmmoThreshhold = 0.125
-				RevolverModule.WeaponSettings.ReloadAnimationSpeed = 1.75
-				RevolverModule.WeaponSettings.LoadCapacity = 3
-				_G.RapidfireScripts = false
-				RapidFire_Button.Text = "RAPID FIRE STATUS : OFF"
-			end
+		ServerHop_Buttn.MouseButton1Click:Connect(function()
+			ServerHop()
 		end)
 	
-		GemBar.Changed:Connect(function()
-			if not _G.AutofarmScripts then return end
-			Gems.Text =  "GEMS EARNED : ".. tostring(extractNumbers(GemBar.Text) - PreviousAmountOfGems)..""
-		end)
-	
-		game:GetService("Players").LocalPlayer.leaderstats.Kills.Changed:Connect(function()
-			if not _G.AutofarmScripts then return end
-			KillAmount += 1
-			Kills.Text = "KILLS EARNED : "..tostring(KillAmount)..""
-		end)
 	
 		if KeySystem and KeySystem.Parent then
 			KeySystem:Destroy()
@@ -489,6 +593,8 @@ local function QHLHJF_fake_script() -- System.Controller
 			if KeyTextbox.Text == ACCESS_CODE and not _G.UpdateLoadstring then
 				GUIFunction()
 				_G.UpdateLoadstring = true
+			else
+				SendNotification("Dabitob","wrong key dawg","rbxassetid://12386566164","3","k fine")
 			end
 		end)
 	
@@ -498,4 +604,4 @@ local function QHLHJF_fake_script() -- System.Controller
 	
 	
 end
-coroutine.wrap(QHLHJF_fake_script)()
+coroutine.wrap(CHZJEZU_fake_script)()
