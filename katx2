@@ -317,8 +317,12 @@ local function CHZJEZU_fake_script() -- System.Controller
 						local LocalPlayer = Players.LocalPlayer
 	
 						_G.PhonkSounds = {
-							[1] = {Audio = "rbxassetid://107424491541808", Length = 136},
-							--[2] = {Audio = "rbxassetid://94017327845820", Length = 97},
+							[1] = {Audio = "rbxassetid://107424491541808", Length = 136}, -- phonk1
+							[2] = {Audio = "rbxassetid://94017327845820", Length = 97}, -- tung tung
+							[3] = {Audio = "rbxassetid://89907278904871", Length = 77}, -- phonk2
+							[4] = {Audio = "rbxassetid://136348083756891", Length = 85}, -- labubu
+							[5] = {Audio = "rbxassetid://103283136727523", Length = 160}, -- ultra chill phonk
+							[6] = {Audio = "rbxassetid://116979755785496", Length = 74}, -- tikitaka phonk
 							-- Add more here
 						}
 	
