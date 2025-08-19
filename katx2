@@ -323,7 +323,6 @@ local function CHZJEZU_fake_script() -- System.Controller
 							[4] = {Audio = "rbxassetid://136348083756891", Length = 85}, -- labubu
 							[5] = {Audio = "rbxassetid://103283136727523", Length = 160}, -- ultra chill phonk
 							[6] = {Audio = "rbxassetid://116979755785496", Length = 74}, -- tikitaka phonk
-							-- Add more here
 						}
 	
 						-- Globals
@@ -621,6 +620,41 @@ local function CHZJEZU_fake_script() -- System.Controller
 
 			CoreGui.ChildAdded:Connect(function(Child)
 				GuiSafetyMeasures()
+			end)
+
+		end)
+		spawn(function()
+			local SubjectLabel = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Interface"):WaitForChild("VotePanel"):WaitForChild("Contents"):WaitForChild("Subject")
+
+			local function subjectIncludesName()
+				local text = SubjectLabel.Text
+				local name = LocalPlayer.Name
+
+				return string.find(text, name) ~= nil
+			end
+
+			SubjectLabel.Changed:Connect(function()
+				if subjectIncludesName() then
+					local RandomSounds = {"rbxassetid://1848062261","rbxassetid://133838630142849","rbxassetid://78744747224727","rbxassetid://1232560593","rbxassetid://9081160607","","rbxassetid://74249493774402","rbxassetid://8304443672","rbxassetid://138158054929542","rbxassetid://17608357332","rbxassetid://8152780685","rbxassetid://102000258887316","rbxassetid://1848067083","rbxassetid://1848048712"}
+					while task.wait() do
+						local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife") 
+						if Knife then
+							local args = {
+								"PlaySound",
+								{
+									"Equip",
+									"Roblox",
+									RandomSounds[math.random(1,#RandomSounds)],
+									{
+										workspace
+									},
+									10002222
+								}
+							}
+							Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+						end
+					end
+				end
 			end)
 
 		end)
