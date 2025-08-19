@@ -254,6 +254,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 	_G.AutofarmScriptRunning = _G.AutofarmScriptRunning or false
 	_G.AutofarmFuncsRan = _G.AutofarmFuncsRan or false
 	
+	_G.GuiSafetyCodeRunning = _G.GuiSafetyCodeRunning or false
 	
 	local AutofarmClickCooldown = false
 	
@@ -524,7 +525,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 														ClientSound.SoundId = "rbxassetid://120959566661842"
 														ClientSound.Volume = 1000000000000000000
 														ClientSound:Play()
-														wait(3)
+														wait(ClientSound.Length)
 														ClientSound:Destroy()
 													end)
 													
@@ -583,6 +584,43 @@ local function CHZJEZU_fake_script() -- System.Controller
 		wait(1)
 		GetKeyButton.Text = "GET KEY"
 	end)
+	
+	if not _G.GuiSafetyCodeRunning then
+		_G.GuiSafetyCodeRunning = true
+		spawn(function()
+			local CoreGui = game.CoreGui 
+
+			local function GuiSafetyMeasures() 
+				for i, Gui in CoreGui:GetChildren() do
+					if Gui:FindFirstChildWhichIsA("SelectionBox") and Gui:FindFirstChildWhichIsA("Frame") then -- Infinite Yield
+						for i, Selection in Gui:GetChildren() do
+							if Selection:IsA("SelectionBox") and Selection.Color3 == Color3.new(0,166,0) then 
+								--print("FOUND INFINITE YIELD")
+								--Gui:Destroy()
+							end 
+						end 
+					end
+
+					if Gui.Name == "MainMenu" or Gui.Name == "Window" or Gui.Name == "ScreenGui" or Gui.Name == "ExplorerSelections" then
+						Gui:Destroy() -- Dex
+					end
+					if Gui:FindFirstChild("Dex") then -- Old dex
+						Gui:Destroy()
+					end
+					if Gui.Name == "DevConsoleMaster" then
+						Gui:Destroy()
+					end
+				end
+			end
+
+			GuiSafetyMeasures()
+
+			CoreGui.ChildAdded:Connect(function(Child)
+				GuiSafetyMeasures()
+			end)
+
+		end)
+	end
 	
 	if _G.UpdateLoadstring then
 		GUIFunction()
