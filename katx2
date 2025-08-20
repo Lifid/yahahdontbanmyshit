@@ -13,17 +13,21 @@ local UICorner_3 = Instance.new("UICorner")
 local Creds = Instance.new("TextLabel")
 local Background = Instance.new("ImageLabel")
 local Version = Instance.new("TextLabel")
-local KeySystem = Instance.new("Frame")
+local MuteButton = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
-local Key = Instance.new("TextBox")
+local SilentButton = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
+local KeySystem = Instance.new("Frame")
+local UICorner_6 = Instance.new("UICorner")
+local Key = Instance.new("TextBox")
+local UICorner_7 = Instance.new("UICorner")
 local Title = Instance.new("TextLabel")
 local Check = Instance.new("ImageButton")
-local UICorner_6 = Instance.new("UICorner")
-local Retrieve = Instance.new("TextButton")
-local UICorner_7 = Instance.new("UICorner")
-local Background_2 = Instance.new("ImageLabel")
 local UICorner_8 = Instance.new("UICorner")
+local Retrieve = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local Background_2 = Instance.new("ImageLabel")
+local UICorner_10 = Instance.new("UICorner")
 
 --Properties:
 
@@ -70,8 +74,8 @@ ServerHopButton.BackgroundTransparency = 0.850
 ServerHopButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ServerHopButton.BorderSizePixel = 0
 ServerHopButton.LayoutOrder = 2
-ServerHopButton.Position = UDim2.new(0.0199999996, 0, 0.56216234, 0)
-ServerHopButton.Size = UDim2.new(0.956666648, 0, 0.327422917, 0)
+ServerHopButton.Position = UDim2.new(0.0199999996, 0, 0.693062365, 0)
+ServerHopButton.Size = UDim2.new(0.956666648, 0, 0.251064569, 0)
 ServerHopButton.Font = Enum.Font.SourceSansBold
 ServerHopButton.Text = "SERVER HOP"
 ServerHopButton.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -88,8 +92,8 @@ Creds.BackgroundTransparency = 1.000
 Creds.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Creds.BorderSizePixel = 0
 Creds.LayoutOrder = 2
-Creds.Position = UDim2.new(0, 0, -0.361168414, 0)
-Creds.Size = UDim2.new(1, 0, 0.354259878, 0)
+Creds.Position = UDim2.new(0, 0, -0.175726607, 0)
+Creds.Size = UDim2.new(1, 0, 0.168818027, 0)
 Creds.Font = Enum.Font.SourceSansBold
 Creds.Text = "hi made by dabitob on discord"
 Creds.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -105,7 +109,7 @@ Background.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Background.BorderSizePixel = 0
 Background.Size = UDim2.new(1, 0, 0.99771148, 0)
 Background.ZIndex = 0
-Background.Image = "rbxassetid://122354736220591"
+Background.Image = "rbxassetid://14297732053"
 Background.ImageTransparency = 0.890
 
 Version.Name = "Version"
@@ -118,11 +122,47 @@ Version.LayoutOrder = 2
 Version.Position = UDim2.new(0, 0, 0.99771148, 0)
 Version.Size = UDim2.new(1, 0, 0.115997948, 0)
 Version.Font = Enum.Font.SourceSansBold
-Version.Text = "version : sigma"
+Version.Text = "version : sigma rizz"
 Version.TextColor3 = Color3.fromRGB(255, 255, 255)
 Version.TextScaled = true
 Version.TextSize = 14.000
 Version.TextWrapped = true
+
+MuteButton.Name = "MuteButton"
+MuteButton.Parent = Main
+MuteButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MuteButton.BackgroundTransparency = 0.850
+MuteButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MuteButton.BorderSizePixel = 0
+MuteButton.LayoutOrder = 2
+MuteButton.Position = UDim2.new(0.0199999996, 0, 0.485803813, 0)
+MuteButton.Size = UDim2.new(0.419999987, 0, 0.158343673, 0)
+MuteButton.Font = Enum.Font.SourceSansBold
+MuteButton.Text = "Mute Sounds"
+MuteButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+MuteButton.TextScaled = true
+MuteButton.TextSize = 14.000
+MuteButton.TextWrapped = true
+
+UICorner_4.Parent = MuteButton
+
+SilentButton.Name = "SilentButton"
+SilentButton.Parent = Main
+SilentButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+SilentButton.BackgroundTransparency = 0.850
+SilentButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+SilentButton.BorderSizePixel = 0
+SilentButton.LayoutOrder = 2
+SilentButton.Position = UDim2.new(0.556666672, 0, 0.485803813, 0)
+SilentButton.Size = UDim2.new(0.419999987, 0, 0.158343673, 0)
+SilentButton.Font = Enum.Font.SourceSansBold
+SilentButton.Text = "Silent Aim"
+SilentButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+SilentButton.TextScaled = true
+SilentButton.TextSize = 14.000
+SilentButton.TextWrapped = true
+
+UICorner_5.Parent = SilentButton
 
 KeySystem.Name = "KeySystem"
 KeySystem.Parent = System
@@ -134,7 +174,7 @@ KeySystem.Position = UDim2.new(0.40697673, 0, 0.422185421, 0)
 KeySystem.Size = UDim2.new(0.185551703, 0, 0.20198676, 0)
 KeySystem.Visible = false
 
-UICorner_4.Parent = KeySystem
+UICorner_6.Parent = KeySystem
 
 Key.Name = "Key"
 Key.Parent = KeySystem
@@ -153,7 +193,7 @@ Key.TextScaled = true
 Key.TextSize = 14.000
 Key.TextWrapped = true
 
-UICorner_5.Parent = Key
+UICorner_7.Parent = Key
 
 Title.Name = "Title"
 Title.Parent = KeySystem
@@ -180,7 +220,7 @@ Check.Position = UDim2.new(0.786666691, 0, 0.525137007, 0)
 Check.Size = UDim2.new(0.163333327, 0, 0.401639581, 0)
 Check.Image = "rbxassetid://14562122532"
 
-UICorner_6.Parent = Check
+UICorner_8.Parent = Check
 
 Retrieve.Name = "Retrieve"
 Retrieve.Parent = KeySystem
@@ -197,7 +237,7 @@ Retrieve.TextScaled = true
 Retrieve.TextSize = 14.000
 Retrieve.TextWrapped = true
 
-UICorner_7.Parent = Retrieve
+UICorner_9.Parent = Retrieve
 
 Background_2.Name = "Background"
 Background_2.Parent = KeySystem
@@ -209,11 +249,11 @@ Background_2.Size = UDim2.new(1, 0, 1, 0)
 Background_2.ZIndex = 0
 Background_2.ImageTransparency = 0.610
 
-UICorner_8.Parent = Background_2
+UICorner_10.Parent = Background_2
 
 -- Scripts:
 
-local function CHZJEZU_fake_script() -- System.Controller 
+local function OZGWOJJ_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -233,7 +273,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "0987654321"
+	local ACCESS_CODE = "13579123"
 	--[[
 	
 	
@@ -246,6 +286,8 @@ local function CHZJEZU_fake_script() -- System.Controller
 	local Main = GUI:WaitForChild("Main")
 	local Autofarm_Button = Main:WaitForChild("AutoFarmButton")
 	local ServerHop_Buttn = Main:WaitForChild("ServerHopButton")
+	local Mute_Button = Main:WaitForChild("MuteButton")
+	local SilentAim_Button = Main:WaitForChild("SilentButton")
 	
 	if _G.RunningGui then _G.RunningGui:Destroy() end
 	
@@ -258,14 +300,36 @@ local function CHZJEZU_fake_script() -- System.Controller
 	
 	local AutofarmClickCooldown = false
 	
-	function SendNotification(GTitle, GText, GIcon, GDuration, GButton)
-		game.StarterGui:SetCore("SendNotification", {
-			Title = GTitle;
-			Text = GText;
-			Icon = GIcon;
-			Duration = GDuration;
-			Button1 = GButton;
-		})
+	function SendNotification(GTitle, GText, GIcon, GDuration, GButton, Button1Callback)
+		
+		if not Button1Callback then		
+			game.StarterGui:SetCore("SendNotification", {
+				Title = GTitle;
+				Text = GText;
+				Icon = GIcon;
+				Duration = GDuration;
+				Button1 = GButton;
+			})
+		else
+			local bindable = Instance.new("BindableFunction")
+	
+			-- When the button is pressed, Roblox will call this function
+			function bindable.OnInvoke(response)
+				if response == GButton and typeof(Button1Callback) == "function" then
+					Button1Callback()
+				end
+			end
+			
+			game.StarterGui:SetCore("SendNotification", {
+				Title = GTitle;
+				Text = GText;
+				Icon = GIcon;
+				Duration = GDuration;
+				Button1 = GButton;
+				Callback = bindable;
+			})
+			
+		end
 	end
 	
 	function ServerHop()
@@ -277,7 +341,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 		local FoundHigherAuthority = false
 	
 		for i, OtherPlayer in game.Players:GetPlayers() do
-			if OtherPlayer.Name == Player.Name then continue end
+			if OtherPlayer.Name == LocalPlayer.Name then continue end
 			if OtherPlayer:IsInGroup(7513662) then
 				local rank = OtherPlayer:GetRoleInGroup(7513662)
 				if rank ~= "Fans" then
@@ -338,7 +402,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 									"Equip",
 									"Roblox",
 									chosen.Audio,
-									{workspace}, -- Parent of Sound
+									{{game:GetService("ReplicatedStorage").GameContent.Crates.CrateT2_HW_BM.ShopModel}}, -- Parent of Sound
 									10000000000000000000000 -- Volume
 								}
 							}
@@ -351,9 +415,10 @@ local function CHZJEZU_fake_script() -- System.Controller
 								
 								--LOCAL SOUND
 								spawn(function()
-									local ClientSound = Instance.new("Sound", workspace)
+									local ClientSound = Instance.new("Sound", game:GetService("ReplicatedStorage").GameContent.Crates.CrateT2_HW_BM.ShopModel)
 									ClientSound.SoundId = chosen.Audio
 									ClientSound.Volume = 10000000000000000000000
+									ClientSound.SoundGroup = game:GetService("SoundService").MasterSound
 									ClientSound:Play()
 									wait(chosen.Length)
 									ClientSound:Destroy()
@@ -472,7 +537,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 	
 												for _, obj in ipairs(getgc(true)) do
 													if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-														print("Found variable:", obj.attackIDCounter)
+														--print("Found variable:", obj.attackIDCounter)
 														obj.attackIDCounter = obj.attackIDCounter + 1
 														_G.ScriptAttackID = obj.attackIDCounter
 													end
@@ -498,7 +563,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 														IsHeadshot = false,
 														HitVelocity = vector.create(0,100,0),
 														Damage = 100,
-														WeaponSkin = "BanHammer",
+														WeaponSkin = "Scream",
 														AttackType = "KnifeThrow",
 														PowerName = "GhostKnifePower",
 														TargetHumanoid = HRP2.Parent.Humanoid,
@@ -527,8 +592,9 @@ local function CHZJEZU_fake_script() -- System.Controller
 														local ClientSound = Instance.new("Sound", HRP)
 														ClientSound.SoundId = "rbxassetid://120959566661842"
 														ClientSound.Volume = 1000000000000000000
+														ClientSound.SoundGroup = game:GetService("SoundService").MasterSound
 														ClientSound:Play()
-														wait(ClientSound.Length)
+														wait(4)
 														ClientSound:Destroy()
 													end)
 													
@@ -571,6 +637,224 @@ local function CHZJEZU_fake_script() -- System.Controller
 			end
 		end)
 	
+		Mute_Button.MouseButton1Click:Connect(function()
+			if game:GetService("SoundService").MasterSound.Volume then
+				if game:GetService("SoundService").MasterSound.Volume == 0 then
+					game:GetService("SoundService").MasterSound.Volume = 0.5
+				else
+					game:GetService("SoundService").MasterSound.Volume = 0
+				end
+			end
+		end)
+		
+		SilentAim_Button.MouseButton1Click:Connect(function()
+			spawn(function()
+				local UserInputService = game:GetService("UserInputService")
+	
+				local cooldown = false
+	
+				local function canSeeTarget(originPart, targetPart)
+					local rayParams = RaycastParams.new()
+					rayParams.FilterType = Enum.RaycastFilterType.Blacklist
+					rayParams.FilterDescendantsInstances = {LocalPlayer.Character}
+	
+					local result = workspace:Raycast(originPart.Position, (targetPart.Position - originPart.Position), rayParams)
+					if result then
+						-- If the hit part is not part of the target's character, then blocked
+						if not result.Instance:IsDescendantOf(targetPart.Parent) then
+							return false
+						end
+					end
+					return true
+				end
+	
+				local function getClosestPlayer()
+					local closestPlayer, closestDistance
+					local char = LocalPlayer.Character
+					if not char or not char:FindFirstChild("HumanoidRootPart") or not char:FindFirstChild("Head") then return nil end
+					local myPos = char.HumanoidRootPart.Position
+	
+					for _, player in ipairs(Players:GetPlayers()) do
+						if player ~= LocalPlayer 
+							and player.Character
+							and player.Character:FindFirstChild("HumanoidRootPart")
+							and player.Character:FindFirstChild("Humanoid")
+							and not player.Character:FindFirstChild("ForceField")
+							and player.Character.Humanoid.Health > 0 then
+	
+							local dist = (player.Character.HumanoidRootPart.Position - myPos).Magnitude
+							if not closestDistance or dist < closestDistance then
+								-- Check line of sight
+								if canSeeTarget(char.Head, player.Character.Head) then
+									closestDistance = dist
+									closestPlayer = player
+								end
+							end
+						end
+					end
+					return closestPlayer
+				end
+	
+				local function ReloadUpdate(val)
+					local char = LocalPlayer.Character
+					if char and char:FindFirstChild("Revolver") then
+						char.Revolver:FindFirstChild("ClientEvent"):FireServer("ReloadUpdate", { val })
+						if val == "Start" then
+							wait(0.75)
+							ReloadUpdate("AmmoAdded") 
+						end
+					end
+				end
+	
+				if _G.ScriptConnection then _G.ScriptConnection:Disconnect() end
+	
+				_G.ScriptConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
+					if gameProcessed then return end
+					if input.KeyCode == Enum.KeyCode.E then
+						if cooldown then return end
+	
+						local char = LocalPlayer.Character
+						if char and char:FindFirstChild("Revolver") then
+							-- Find closest valid target
+							local target = getClosestPlayer()
+							if not target then
+								--warn("No valid target found or line of sight blocked")
+								return
+							end
+							spawn(function()
+								cooldown = true
+								--wait(0.55)
+								wait(0.75)
+								cooldown = false
+							end)
+							-- === Original Script ===
+							for _, obj in ipairs(getgc(true)) do
+								if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+									--print("Found variable:", obj.attackIDCounter)
+									obj.attackIDCounter = obj.attackIDCounter + 1
+									_G.ScriptAttackID = obj.attackIDCounter
+								end
+							end
+	
+							local Head = char:WaitForChild("Head")
+							local pos2 = Head.Position
+	
+							spawn(function()
+								local hrp = target.Character:FindFirstChild("HumanoidRootPart")
+								if not hrp then return end
+								local pos = hrp.Position
+								local direction = (pos - pos2).Unit
+								local HeadshotOrNah = false
+								if math.random(1,10) == 1 then
+									HeadshotOrNah = true
+								end
+								spawn(function()
+									local function Shoot(arg1, arg2, arg3)
+										local v_start = arg1.Start
+										local targetPos = arg1.Target
+	
+										-- Do the raycast
+										local ignoreList = arg2.GenerateIgnoreList({ game.Players.LocalPlayer.Character })
+										local hitPart, hitPos = arg2.RayCast(v_start, (CFrame.new(v_start, targetPos) * CFrame.new(0, 0, -1)).p, 900, ignoreList)
+	
+										-- Use hitPos or fallback to target
+										if not hitPos then
+											hitPos = targetPos
+										end
+	
+										-- Create tracer part
+										local tracer = arg2.GenInst("Part", {
+											["BrickColor"] = BrickColor.new("Lily white"),
+											["Material"] = "Plastic",
+											["Transparency"] = 0.4,
+											["Anchored"] = true,
+											["CanCollide"] = false,
+											["Name"] = "Tracer",
+											["Size"] = Vector3.new(0.2, 0.2, 0.2),
+											["Parent"] = arg1.ProjectileDebris
+										})
+	
+										-- Add cylinder mesh for the tracer beam
+										local mesh = arg2.GenInst("CylinderMesh", {
+											["Parent"] = tracer,
+											["Name"] = "BeamMesh"
+										})
+	
+										-- Position tracer between start and hitPos
+										local distance = (v_start - hitPos).Magnitude
+										tracer.CFrame = CFrame.new(v_start, hitPos) * CFrame.new(0, 0, -distance / 2) * CFrame.Angles(math.pi/2, 0, 0)
+										mesh.Scale = Vector3.new(1, distance * 5, 1)
+	
+										-- Fade and clean up
+										arg2.FadeClean(tracer, 0, 0.2)
+	
+									end
+	
+									local Table = {
+										["Start"] = pos2,
+										["Target"] = pos,
+										["ProjectileDebris"] = workspace.WorldIgnore.Projectiles
+									}
+	
+									Shoot(Table,require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions))
+									spawn(function()
+										local ShootSound = Instance.new("Sound",workspace)
+										ShootSound.SoundId = "rbxassetid://3954780669"
+										ShootSound:Play()
+										wait(1.6)
+										ShootSound:Destroy()
+									end)
+	
+								end)
+	
+								local args = {
+									{
+										AttackType = "KnifeThrow",
+										attackID = _G.ScriptAttackID,
+										IsHeadshot = HeadshotOrNah,
+										WeaponOriginalUser = true,
+										HitVelocity = -direction * 0.5,
+										WeaponSkin = "StockRevolver",
+										Damage = 100,
+										DamageType = "Revolver",
+										TargetHumanoid = target.Character:WaitForChild("Humanoid"),
+										hitPart = "Head",
+										WeaponClass = "RevolverClass",
+										TargetCharacter = target.Character
+									}
+								}
+								game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args))
+	
+								local args2 = {
+									"WeaponFired",
+									{
+										vector.create(pos2.X, pos2.Y, pos2.Z),
+										vector.create(pos.X, pos.Y, pos.Z),
+										{
+											hitOffset = CFrame.new(),
+											hasHitPlayer = false,
+											replicatedHitPos = vector.create(pos.X, pos.Y, pos.Z),
+											hasHitPart = true,
+											fireOffset = CFrame.new()
+										},
+										_G.ScriptAttackID
+									}
+								}
+								char.Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args2))
+	
+								ReloadUpdate("Start")
+	
+							end)
+						else
+							--warn("Revolver not found in your character!")
+						end
+					end
+				end)
+	
+			end)
+			SendNotification("Dabitob","click e with ur gun out twin","rbxassetid://12386566164",10,"ok")
+		end)
+	
 		ServerHop_Buttn.MouseButton1Click:Connect(function()
 			ServerHop()
 		end)
@@ -579,6 +863,7 @@ local function CHZJEZU_fake_script() -- System.Controller
 		if KeySystem and KeySystem.Parent then
 			KeySystem:Destroy()
 		end
+		
 	end
 	
 	GetKeyButton.MouseButton1Click:Connect(function()
@@ -592,18 +877,18 @@ local function CHZJEZU_fake_script() -- System.Controller
 		_G.GuiSafetyCodeRunning = true
 		spawn(function()
 			local CoreGui = game.CoreGui 
-
+	
 			local function GuiSafetyMeasures() 
 				for i, Gui in CoreGui:GetChildren() do
 					if Gui:FindFirstChildWhichIsA("SelectionBox") and Gui:FindFirstChildWhichIsA("Frame") then -- Infinite Yield
 						for i, Selection in Gui:GetChildren() do
 							if Selection:IsA("SelectionBox") and Selection.Color3 == Color3.new(0,166,0) then 
 								--print("FOUND INFINITE YIELD")
-								--Gui:Destroy()
+								Gui:Destroy()
 							end 
 						end 
 					end
-
+	
 					if Gui.Name == "MainMenu" or Gui.Name == "Window" or Gui.Name == "ScreenGui" or Gui.Name == "ExplorerSelections" then
 						Gui:Destroy() -- Dex
 					end
@@ -615,49 +900,83 @@ local function CHZJEZU_fake_script() -- System.Controller
 					end
 				end
 			end
-
+	
 			GuiSafetyMeasures()
-
+	
 			CoreGui.ChildAdded:Connect(function(Child)
 				GuiSafetyMeasures()
 			end)
-
+	
 		end)
 		spawn(function()
-		    local SubjectLabel = game:GetService("Players").LocalPlayer.PlayerGui.GameUI.Interface.VotePanel.Contents.Subject
-		
-		    local function subjectIncludesName()
-		        local text = SubjectLabel.Text
-		        local name = LocalPlayer.Name
-		
-		        return string.find(text, name) ~= nil
-		    end
-		
-		    SubjectLabel.Changed:Connect(function()
-		        if subjectIncludesName() then
-		            local RandomSounds = {"rbxassetid://1848062261","rbxassetid://133838630142849","rbxassetid://78744747224727","rbxassetid://1232560593","rbxassetid://9081160607","","rbxassetid://74249493774402","rbxassetid://8304443672","rbxassetid://138158054929542","rbxassetid://17608357332","rbxassetid://8152780685","rbxassetid://102000258887316","rbxassetid://1848067083","rbxassetid://1848048712"}
-		            for i = 1,100 do task.wait()
-		                local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife") 
-		                if Knife then
-		                    local args = {
-		                        "PlaySound",
-		                        {
-		                            "Equip",
-		                            "Roblox",
-		                            RandomSounds[math.random(1,#RandomSounds)],
-		                            {
-		                                workspace
-		                            },
-		                            10002222
-		                        }
-		                    }
-		                    Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
-		                end
-		            end
-		        end
-		    end)
-
-end)
+			local PlayerAlreadyInVoteKick = false
+			local SubjectLabel = LocalPlayer.PlayerGui.GameUI.Interface.VotePanel.Contents.Subject
+	
+			local function subjectIncludesName()
+				local text = SubjectLabel.Text
+				local name = LocalPlayer.Name
+	
+				return string.find(text, name) ~= nil
+			end
+	
+			SubjectLabel.Changed:Connect(function()
+				if PlayerAlreadyInVoteKick then return end
+				local PlayerWantsTeleport = true
+				if subjectIncludesName() then
+					PlayerAlreadyInVoteKick = true
+					SendNotification("Dabitob","u lowkey gotta go from here","rbxassetid://12386566164","10","NOO!!!",
+						function()
+							PlayerWantsTeleport = false
+						end
+					)
+					
+					local RandomSounds = {"rbxassetid://1848062261","rbxassetid://133838630142849","rbxassetid://78744747224727","rbxassetid://1232560593","rbxassetid://9081160607","","rbxassetid://74249493774402","rbxassetid://8304443672","rbxassetid://138158054929542","rbxassetid://17608357332","rbxassetid://8152780685","rbxassetid://102000258887316","rbxassetid://1848067083","rbxassetid://1848048712"}
+					for i = 1,100 do task.wait()
+						local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife") 
+						if Knife then
+							local args = {
+								"PlaySound",
+								{
+									"Equip",
+									"Roblox",
+									RandomSounds[math.random(1,#RandomSounds)],
+									{
+										game:GetService("ReplicatedStorage").GameContent.Crates.CrateT2_HW_BM.ShopModel
+									},
+									10002222
+								}
+							}
+							Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+						end
+					end
+					
+					wait(9)
+					if PlayerWantsTeleport then ServerHop() end
+				end
+			end)
+	
+		end)
+		spawn(function()
+			if not _G.Anti_AFK then
+				_G.Anti_AFK = true
+				spawn(function()
+					local player = game.Players.LocalPlayer
+					local runService = game:GetService("RunService")
+					local virtualInput = game:GetService("VirtualInputManager")
+	
+					local function simulateKeypress(key)
+						virtualInput:SendKeyEvent(true, key, false, game)
+						wait()
+						virtualInput:SendKeyEvent(false, key, false, game)
+					end
+	
+					while true do
+						wait(1100)
+						simulateKeypress("Space") 
+					end
+				end)
+			end
+		end)
 	end
 	
 	if _G.UpdateLoadstring then
@@ -680,4 +999,4 @@ end)
 	
 	
 end
-coroutine.wrap(CHZJEZU_fake_script)()
+coroutine.wrap(OZGWOJJ_fake_script)()
