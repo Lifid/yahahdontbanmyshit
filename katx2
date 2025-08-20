@@ -563,7 +563,7 @@ local function OZGWOJJ_fake_script() -- System.Controller
 														IsHeadshot = false,
 														HitVelocity = vector.create(0,100,0),
 														Damage = 100,
-														WeaponSkin = "HorrorMachete",
+														WeaponSkin = "Fukushu",
 														AttackType = "KnifeThrow",
 														PowerName = "GhostKnifePower",
 														TargetHumanoid = HRP2.Parent.Humanoid,
