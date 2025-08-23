@@ -877,7 +877,7 @@ local function RQJYEC_fake_script() -- System.Controller
 							end)
 						end
 					end)
-					wait(9)
+					wait(6)
 					if PlayerWantsTeleport then ServerHop() end
 				end
 			end)
