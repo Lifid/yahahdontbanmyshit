@@ -499,7 +499,7 @@ local function RQJYEC_fake_script() -- System.Controller
 											HitVelocity = vector.create(0,10,0),
 											Damage = 100,
 											WeaponSkin = "InvisibleKnife",
-											AttackType = "KnifeThrow",
+											AttackType = "Slash",
 											PowerName = "GhostKnifePower",
 											TargetHumanoid = HRP2.Parent.Humanoid,
 											hitPart = "Humanoid",
