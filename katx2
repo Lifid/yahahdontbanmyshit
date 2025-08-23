@@ -253,7 +253,7 @@ UICorner_10.Parent = Background_2
 
 -- Scripts:
 
-local function RQJYEC_fake_script() -- System.Controller 
+local function YVLNW_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -290,9 +290,16 @@ local function RQJYEC_fake_script() -- System.Controller
 	local SilentAim_Button = Main:WaitForChild("SilentButton")
 	
 	local KnifePower = nil
+	local CommonFuncModule = nil
 	
 	spawn(function()
 		KnifePower = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Menu"):WaitForChild("InventoryUI"):WaitForChild("LoadoutScreen"):WaitForChild("holder"):WaitForChild("EquippedItems"):WaitForChild("Left"):WaitForChild("KnifePowers"):WaitForChild("ItemName")
+	end)
+	
+	spawn(function()
+		pcall(function()
+			CommonFuncModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions)
+		end)
 	end)
 	
 	if _G.RunningGui then _G.RunningGui:Destroy() end
@@ -553,6 +560,7 @@ local function RQJYEC_fake_script() -- System.Controller
 		end)
 	
 		SilentAim_Button.MouseButton1Click:Connect(function()
+			if not CommonFuncModule then SendNotification("Dabitob","twin ur exec buns","rbxassetid://12386566164",5,"ok")  return end
 			spawn(function()
 				local UserInputService = game:GetService("UserInputService")
 	
@@ -654,7 +662,7 @@ local function RQJYEC_fake_script() -- System.Controller
 									HeadshotOrNah = true
 								end
 								spawn(function()
-									local function Shoot(arg1, arg2, arg3)
+									local function Shoot(arg1, arg2)
 										local v_start = arg1.Start
 										local targetPos = arg1.Target
 	
@@ -701,7 +709,7 @@ local function RQJYEC_fake_script() -- System.Controller
 										["ProjectileDebris"] = workspace.WorldIgnore.Projectiles
 									}
 	
-									Shoot(Table,require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions))
+									Shoot(Table,CommonFuncModule)
 									spawn(function()
 										local ShootSound = Instance.new("Sound",workspace)
 										ShootSound.SoundId = "rbxassetid://3954780669"
@@ -877,7 +885,7 @@ local function RQJYEC_fake_script() -- System.Controller
 							end)
 						end
 					end)
-					wait(6)
+					wait(9)
 					if PlayerWantsTeleport then ServerHop() end
 				end
 			end)
@@ -930,4 +938,4 @@ local function RQJYEC_fake_script() -- System.Controller
 	
 	
 end
-coroutine.wrap(RQJYEC_fake_script)()
+coroutine.wrap(YVLNW_fake_script)()
