@@ -253,7 +253,7 @@ UICorner_10.Parent = Background_2
 
 -- Scripts:
 
-local function LHBBHL_fake_script() -- System.Controller 
+local function RQJYEC_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -273,7 +273,7 @@ local function LHBBHL_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "GuysTheyPatchedPhonk"
+	local ACCESS_CODE = "WEARESOBACK"
 	--[[
 	
 	
@@ -289,6 +289,12 @@ local function LHBBHL_fake_script() -- System.Controller
 	local Mute_Button = Main:WaitForChild("MuteButton")
 	local SilentAim_Button = Main:WaitForChild("SilentButton")
 	
+	local KnifePower = nil
+	
+	spawn(function()
+		KnifePower = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Menu"):WaitForChild("InventoryUI"):WaitForChild("LoadoutScreen"):WaitForChild("holder"):WaitForChild("EquippedItems"):WaitForChild("Left"):WaitForChild("KnifePowers"):WaitForChild("ItemName")
+	end)
+	
 	if _G.RunningGui then _G.RunningGui:Destroy() end
 	
 	_G.RunningGui = GUI
@@ -301,7 +307,7 @@ local function LHBBHL_fake_script() -- System.Controller
 	local AutofarmClickCooldown = false
 	
 	function SendNotification(GTitle, GText, GIcon, GDuration, GButton, Button1Callback)
-		
+	
 		if not Button1Callback then		
 			game.StarterGui:SetCore("SendNotification", {
 				Title = GTitle;
@@ -319,7 +325,7 @@ local function LHBBHL_fake_script() -- System.Controller
 					Button1Callback()
 				end
 			end
-			
+	
 			game.StarterGui:SetCore("SendNotification", {
 				Title = GTitle;
 				Text = GText;
@@ -328,7 +334,7 @@ local function LHBBHL_fake_script() -- System.Controller
 				Button1 = GButton;
 				Callback = bindable;
 			})
-			
+	
 		end
 	end
 	
@@ -354,6 +360,12 @@ local function LHBBHL_fake_script() -- System.Controller
 		if FoundHigherAuthority then ServerHop() end
 	end
 	
+	local TargetModule = nil
+	
+	spawn(function()
+		TargetModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientDataManager)
+	end)
+	
 	function GUIFunction()
 		Main.Visible = true
 		Autofarm_Button.MouseButton1Click:Connect(function()
@@ -364,178 +376,169 @@ local function LHBBHL_fake_script() -- System.Controller
 				AutofarmClickCooldown = false
 			end)
 			
-			if LocalPlayer.Character:FindFirstChild("Humanoid") then
-				_G.AutofarmScriptRunning = not _G.AutofarmScriptRunning
-				
-				if game.ReplicatedStorage:FindFirstChild("GameEvents") and game.ReplicatedStorage.GameEvents:FindFirstChild("Misk") and game.ReplicatedStorage.GameEvents.Misk:FindFirstChild("SelfKill") then
-					game:GetService("ReplicatedStorage").GameEvents.Misk.SelfKill:FireServer()
-				else
-					LocalPlayer.Character.Humanoid.Health = 0
-				end
-				
-			else
-				return
-			end
-			
+			_G.AutofarmScriptRunning = not _G.AutofarmScriptRunning
+	
 			if _G.AutofarmScriptRunning then
 				Autofarm_Button.Text = "AUTOFARM STATUS : ON"
-				if not _G.AutofarmFunsRan then
-					_G.AutofarmFunsRan = true
-					
-					spawn(function() -- Play Animations First
-						if _G.AutofarmScriptRunning then
-							local Anim1 = Instance.new("Animation")
-							Anim1.AnimationId = "rbxassetid://282574440"
-							local track1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim1)
-							track1:Play(.1, 1, 1)
-	
-							local Anim2 = Instance.new("Animation")
-							Anim2.AnimationId = "rbxassetid://126753849"
-							local track2 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim2)
-							track2.Priority = Enum.AnimationPriority.Action4
-							track2.Looped = true
-							track2:Play(.1, 1, 3)
-	
-							game.Players.LocalPlayer.Character.Humanoid.HipHeight = 5
-						end
-	
-					end)
-					
-					
-					spawn(function()
-						local LocalPlayer = game.Players.LocalPlayer
-	
-						local function KillLoop()
-							spawn(function()
-								while _G.AutofarmScriptRunning do task.wait() 
-	
-									local function CanTeleportTo(plr)
-										if not plr then return false end
-										local char = plr.Character
-										if not (char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")) then return false end
-										if char.Humanoid.Health <= 0 then return false end
-										if char:FindFirstChild("ForceField") then return false end
-										local appearance = char:FindFirstChild("AppearanceLoaded")
-										if not (appearance and appearance.Value == true) then return false end
-										local HasWeapon = false
-										if plr.Backpack:FindFirstChild("Knife") or plr.Backpack:FindFirstChild("Revolver") then HasWeapon = true end 
-										if not HasWeapon then return false end
-										return true
-									end
-	
-									local function TeleportTo(plr)
-	
-										local HRP = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
-										local rootPart = plr.Character.HumanoidRootPart
-										HRP.CFrame = rootPart.CFrame - rootPart.CFrame.LookVector * 4.5 + Vector3.new(0, 6, 0)
-										rootPart.Size = Vector3.new(15, 15, 15)
-										rootPart.Transparency = 1
-									end
-	
-									for i, Player in game.Players:GetPlayers() do
-										if Player.Name == LocalPlayer.Name then continue end
-										if CanTeleportTo(Player) and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-											TeleportTo(Player)
-											if _G.KillRemoteCooldown then break end
-											local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife")
-											if Player.Character:FindFirstChild("Humanoid") and Player.Character.Humanoid.Health ~= 0 and Knife then
-	
-												local args = {
-													"StartCharge",
-													{}
-												}
-												Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
-												local HRP = LocalPlayer.Character.HumanoidRootPart
-												local HRP2 = Player.Character.HumanoidRootPart
-	
-												for _, obj in ipairs(getgc(true)) do
-													if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-														--print("Found variable:", obj.attackIDCounter)
-														obj.attackIDCounter = obj.attackIDCounter + 1
-														_G.ScriptAttackID = obj.attackIDCounter
-													end
-												end
-												local args1 = {
-													"ChargeRelease",
-													{
-														0,
-														true,
-														--vector.create(HRP.Position.X,HRP.Position.Y,HRP.Position.Z),
-														vector.create(HRP2.Position.X, HRP2.Position.Y, HRP2.Position.Z),
-														vector.create(HRP2.Position.X, HRP2.Position.Y, HRP2.Position.Z),
-														{},
-														_G.ScriptAttackID
-													}
-												}
-												Knife:WaitForChild("ClientEvent"):FireServer(unpack(args1))
-	
-												local args2 = {
-													{
-														DamageType = "Knife",
-														attackID = _G.ScriptAttackID,
-														IsHeadshot = false,
-														HitVelocity = vector.create(0,100,0),
-														Damage = 100,
-														WeaponSkin = "Scream",
-														AttackType = "KnifeThrow",
-														PowerName = "GhostKnifePower",
-														TargetHumanoid = HRP2.Parent.Humanoid,
-														hitPart = "Head",
-														HitPoint = HRP2.CFrame,
-														TargetCharacter = HRP2.Parent
-													}
-												}
-												game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args2))
-	
-												_G.KillRemoteCooldown = true
-												spawn(function()
-													wait(0.25)
-													_G.KillRemoteCooldown = false
-												end)
-											end
-	
-										end
-	
-									end 
-	
+				
+				spawn(function()
+					local function KillLoop()
+						spawn(function()	
+							while _G.AutofarmScriptRunning do task.wait() 
+								
+								if KnifePower and KnifePower.Text ~= "Ghost Knife" then
+									
+									SendNotification("Dabitob","twin where ur ghost knife at","rbxassetid://12386566164",5,"ok")
+									Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
+									wait(1)
+									game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+									break
 								end
-							end)
-						end
+								
+								local function CanFireAt(plr)
+									if not plr then return false end
+									local char = plr.Character
+									if not (char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")) then return false end
+									if char.Humanoid.Health <= 0 then return false end
+									if LocalPlayer.Character and not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then return false end
+									if LocalPlayer.Character:FindFirstChild("Humanoid").Health <= 0 then return false end
+									if (LocalPlayer.Character.HumanoidRootPart.Position - char.HumanoidRootPart.Position).Magnitude >= 850 then return end
+									if char:FindFirstChild("ForceField") then return false end
+									local appearance = char:FindFirstChild("AppearanceLoaded")
+									if not (appearance and appearance.Value == true) then return false end
+									local HasWeapon = false
+									if plr.Backpack:FindFirstChild("Knife") or plr.Backpack:FindFirstChild("Revolver") then HasWeapon = true end 
+									if not HasWeapon then return false end
+									return true
+								end
 	
-						if _G.AutofarmScriptRunning then
-							KillLoop()
-						end
+								local function GetClosestPlayer()
+									local closestPlayer = nil
+									local closestDistance = math.huge
+									local myChar = LocalPlayer.Character
+									if not (myChar and myChar:FindFirstChild("HumanoidRootPart")) then return nil end
 	
-						if not _G.CharAddedConnectionScript then
-							_G.CharAddedConnectionScript = LocalPlayer.CharacterAdded:Connect(function()
-								if not _G.AutofarmScriptRunning then return end
-								task.wait(1) -- let character load
+									local myPos = myChar.HumanoidRootPart.Position
+									for _, plr in ipairs(Players:GetPlayers()) do
+										if plr ~= LocalPlayer and CanFireAt(plr) then
+											local char = plr.Character
+											local dist = (char.HumanoidRootPart.Position - myPos).Magnitude
+											if dist < closestDistance then
+												closestDistance = dist
+												closestPlayer = plr
+											end
+										end
+									end
+	
+									return closestPlayer
+								end
+	
+								local Target = nil
+								local Player = GetClosestPlayer()
+	
+								pcall(function()
+									if game.Players:FindFirstChild(TargetModule.ReadSessionData({ "TargetInfo", "Targets", game.Players.LocalPlayer.Name })[1]) then
+										Target = game.Players:FindFirstChild(TargetModule.ReadSessionData({ "TargetInfo", "Targets", game.Players.LocalPlayer.Name })[1])
+									end
+								end)
+								if Target and CanFireAt(Target) then Player = Target end
+	
+	
+								local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife")
+								if not Player or not Knife then continue end 
+	
+								game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+								if LocalPlayer.Character and not LocalPlayer.Character:FindFirstChild("Knife") then
+									if LocalPlayer.Character:FindFirstChild("Humanoid") then
+										LocalPlayer.Character.Humanoid:EquipTool(Knife)
+										spawn(function()
+											wait(1)
+											for _, track in ipairs(LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+												track:Stop()
+											end
+										end)
+									end
+								end
 	
 								spawn(function()
-									local Anim1 = Instance.new("Animation")
-									Anim1.AnimationId = "rbxassetid://282574440"
-									local track1 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim1)
-									track1:Play(.1, 1, 1)
+									local args = {
+										"StartCharge",
+										{}
+									}
 	
-									local Anim2 = Instance.new("Animation")
-									Anim2.AnimationId = "rbxassetid://126753849"
-									local track2 = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(Anim2)
-									track2.Priority = Enum.AnimationPriority.Action4
-									track2.Looped = true
-									track2:Play(.1, 1, 3)
+									if not Player.Character or not Player.Character:FindFirstChild("HumanoidRootPart") then return end
 	
-									game.Players.LocalPlayer.Character.Humanoid.HipHeight = 5
+									local HRP = LocalPlayer.Character.HumanoidRootPart
+									local HRP2 = Player.Character.HumanoidRootPart
+									if (HRP.Position - HRP2.Position).Magnitude >= 850 then return end
+									for _, obj in ipairs(getgc(true)) do
+										if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+											--print("Found variable:", obj.attackIDCounter)
+											obj.attackIDCounter = obj.attackIDCounter + 1
+											_G.ScriptAttackID = obj.attackIDCounter
+										end
+									end
+									local args1 = {
+										"ChargeRelease",
+										{
+											math.huge,
+											false,
+											--vector.create(HRP.Position.X,HRP.Position.Y,HRP.Position.Z),
+											vector.create(HRP.Position.X, HRP.Position.Y, HRP.Position.Z),
+											vector.create(HRP2.Position.X, HRP2.Position.Y, HRP2.Position.Z),
+											{},
+											_G.ScriptAttackID
+										}
+									}
+	
+									local args2 = {
+										{
+											DamageType = "Knife",
+											attackID = _G.ScriptAttackID,
+											IsHeadshot = false,
+											HitVelocity = vector.create(0,10,0),
+											Damage = 100,
+											WeaponSkin = "InvisibleKnife",
+											AttackType = "KnifeThrow",
+											PowerName = "GhostKnifePower",
+											TargetHumanoid = HRP2.Parent.Humanoid,
+											hitPart = "Humanoid",
+											HitPoint = HRP2.CFrame,
+											TargetCharacter = HRP2.Parent
+										}
+									}
+	
+									Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+									Knife:WaitForChild("ClientEvent"):FireServer(unpack(args1))
+									game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args2))
+	
+	
 								end)
 	
-								KillLoop()
+								wait(0.46)
 	
-							end)
-						end
-					end)
 	
-				end
+	
+							end
+						end)
+					end
+					
+					if not _G.CharAddedConnectionScript then
+						_G.CharAddedConnectionScript = LocalPlayer.CharacterAdded:Connect(function()
+							if not _G.AutofarmScriptRunning then return end
+							task.wait(1) -- let character load
+							KillLoop()
+						end)
+					end
+	
+					KillLoop()
+	
+				end)
+	
 			else
 				Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
+				wait(1)
+				game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
 			end
 		end)
 	
@@ -548,7 +551,7 @@ local function LHBBHL_fake_script() -- System.Controller
 				end
 			end
 		end)
-		
+	
 		SilentAim_Button.MouseButton1Click:Connect(function()
 			spawn(function()
 				local UserInputService = game:GetService("UserInputService")
@@ -625,8 +628,8 @@ local function LHBBHL_fake_script() -- System.Controller
 							end
 							spawn(function()
 								cooldown = true
-								--wait(0.55)
-								wait(0.75)
+								wait(0.55)
+								--wait(0.75)
 								cooldown = false
 							end)
 							-- === Original Script ===
@@ -765,11 +768,11 @@ local function LHBBHL_fake_script() -- System.Controller
 		if KeySystem and KeySystem.Parent then
 			KeySystem:Destroy()
 		end
-		
+	
 	end
 	
 	GetKeyButton.MouseButton1Click:Connect(function()
-		setclipboard(tostring("https://direct-link.net/1133165/q2WvTJ3pmUrl"))
+		setclipboard(tostring("https://server-cvdy.onrender.com"))
 		GetKeyButton.Text = "COPIED!"
 		wait(1)
 		GetKeyButton.Text = "GET KEY"
@@ -777,7 +780,7 @@ local function LHBBHL_fake_script() -- System.Controller
 	
 	if not _G.GuiSafetyCodeRunning then
 		_G.GuiSafetyCodeRunning = true
-		spawn(function()
+		spawn(function() -- gui protection
 			local CoreGui = game.CoreGui 
 	
 			local function GuiSafetyMeasures() 
@@ -810,7 +813,7 @@ local function LHBBHL_fake_script() -- System.Controller
 			end)
 	
 		end)
-		spawn(function()
+		spawn(function() -- player votekick 
 			local PlayerAlreadyInVoteKick = false
 			local SubjectLabel = LocalPlayer.PlayerGui.GameUI.Interface.VotePanel.Contents.Subject
 	
@@ -880,7 +883,7 @@ local function LHBBHL_fake_script() -- System.Controller
 			end)
 	
 		end)
-		spawn(function()
+		spawn(function() -- anti afk
 			if not _G.Anti_AFK then
 				_G.Anti_AFK = true
 				spawn(function()
@@ -901,13 +904,17 @@ local function LHBBHL_fake_script() -- System.Controller
 				end)
 			end
 		end)
+		spawn(function() -- omg stupid error sound
+			local soundtable = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientLibrary)
+			soundtable.UISounds.Error.Volume = 0
+		end)
 	end
 	
 	if _G.UpdateLoadstring then
 		GUIFunction()
 	else
 		KeySystem.Visible = true
-		
+	
 		CheckButton.MouseButton1Click:Connect(function()
 			if KeyTextbox.Text == ACCESS_CODE and not _G.UpdateLoadstring then
 				GUIFunction()
@@ -918,9 +925,9 @@ local function LHBBHL_fake_script() -- System.Controller
 		end)
 	
 	
-		
+	
 	end
 	
 	
 end
-coroutine.wrap(LHBBHL_fake_script)()
+coroutine.wrap(RQJYEC_fake_script)()
