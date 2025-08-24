@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function PACXZZM_fake_script() -- System.Controller 
+local function ENEZ_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -283,6 +283,14 @@ local function PACXZZM_fake_script() -- System.Controller
 	local GetKeyButton = KeySystem:WaitForChild("Retrieve")
 	local KeyTextbox = KeySystem:WaitForChild("Key")
 	local KeyBackground = KeySystem:WaitForChild("Background")
+	
+	local PREMIUM_KEYS = {
+		"epic_yo34343443", -- epichaker // 1363686525719675073 // 8/24
+		"vocalismep", -- vocalismep // 1358591058325405766 // 8/24
+	}
+	
+	
+	_G.PremiumKeyEntered = _G.PremiumKeyEntered or false
 	
 	--[[                    --------------------------------
 	CODE IMPORTANT BELOW
@@ -307,9 +315,16 @@ local function PACXZZM_fake_script() -- System.Controller
 	local SilentAim_Button = Main:WaitForChild("SilentButton")
 	local MobileShoot_Button = Main:WaitForChild("MobileShoot")
 	
+	local saveFile = "VMProtectSDK64.json"
+	
 	local KnifePower = nil
 	local CommonFuncModule = nil
 	local TargetModule = nil
+	local SelfKill = nil
+	
+	spawn(function()
+		SelfKill = game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Misk"):WaitForChild("SelfKill")
+	end)
 	
 	spawn(function()
 		KnifePower = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Menu"):WaitForChild("InventoryUI"):WaitForChild("LoadoutScreen"):WaitForChild("holder"):WaitForChild("EquippedItems"):WaitForChild("Left"):WaitForChild("KnifePowers"):WaitForChild("ItemName")
@@ -341,7 +356,7 @@ local function PACXZZM_fake_script() -- System.Controller
 			_G.InjectionMethod = "Weak"
 			_G.ScriptAttackID = 0
 		end
-		
+	
 		SendNotification("Dabitob","twin ur executor level is ".._G.InjectionMethod.."","rbxassetid://12386566164",5,"ok")
 	end)
 	
@@ -355,6 +370,39 @@ local function PACXZZM_fake_script() -- System.Controller
 	_G.GuiSafetyCodeRunning = _G.GuiSafetyCodeRunning or false
 	
 	local AutofarmClickCooldown = false
+	
+	
+	--// Save global variables before teleport
+	local function SaveGlobals()
+		local data = {
+			PremiumKeyEntered = _G.PremiumKeyEntered,
+			AutofarmScriptRunning = _G.AutofarmScriptRunning,
+			SavedAt = os.time(), 
+		}
+	
+		writefile(saveFile, game:GetService("HttpService"):JSONEncode(data))
+	end
+	
+	local function LoadGlobals()
+		if isfile(saveFile) then
+			local contents = readfile(saveFile)
+			local decoded = game:GetService("HttpService"):JSONDecode(contents)
+	
+			-- Check if it has expired (10 minutes example)
+			local now = os.time()
+			local age = now - (decoded.SavedAt or 0)
+	
+			if age <= (1 * 60) then -- 1 minutes in seconds
+				for k, v in pairs(decoded) do
+					if k ~= "SavedAt" then
+						_G[k] = v
+					end
+				end
+			else
+				delfile(saveFile) -- optional: delete expired data
+			end
+		end
+	end
 	
 	function SendNotification(GTitle, GText, GIcon, GDuration, GButton, Button1Callback)
 	
@@ -389,6 +437,9 @@ local function PACXZZM_fake_script() -- System.Controller
 	end
 	
 	function ServerHop()
+		if _G.PremiumKeyEntered then
+			SaveGlobals()
+		end
 		local placeId = game.PlaceId
 		TeleportService:Teleport(placeId)
 	end
@@ -419,24 +470,29 @@ local function PACXZZM_fake_script() -- System.Controller
 				wait(3)
 				AutofarmClickCooldown = false
 			end)
-			
+	
 			_G.AutofarmScriptRunning = not _G.AutofarmScriptRunning
 	
 			if _G.AutofarmScriptRunning then
 				Autofarm_Button.Text = "AUTOFARM STATUS : ON"
-				
+	
 				spawn(function()
 					local function KillLoop()
 						spawn(function()	
 							while _G.AutofarmScriptRunning do task.wait() 
-								
+	
 								local ValidAbility = false
-								
-								
-								local Allowed = {"Cnfbfjdnfj", "67865787"}
+	
+	
+								local Allowed = {"IIiamnaglI", "KUNGUTSIbPESH"}
 								local KnifeAbility = KnifePower.Text
 	
 								if KnifeAbility == "Deathbeam" and table.find(Allowed, LocalPlayer.Name) then
+									KnifeAbility = "DeathBeam"
+									ValidAbility = true
+								end
+	
+								if KnifeAbility == "Deathbeam" and _G.PremiumKeyEntered then
 									KnifeAbility = "DeathBeam"
 									ValidAbility = true
 								end
@@ -445,10 +501,10 @@ local function PACXZZM_fake_script() -- System.Controller
 									KnifeAbility = "GhostKnifePower"
 									ValidAbility = true
 								end
-								
-								
+	
+	
 								if not ValidAbility then
-									
+	
 									SendNotification("Dabitob","twin where ur ghost knife at","rbxassetid://12386566164",5,"ok")
 									Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
 									wait(1)
@@ -456,7 +512,7 @@ local function PACXZZM_fake_script() -- System.Controller
 									_G.AutofarmScriptRunning = false
 									break
 								end
-								
+	
 								local function CanFireAt(plr)
 									if not plr then return false end
 									local char = plr.Character
@@ -518,7 +574,7 @@ local function PACXZZM_fake_script() -- System.Controller
 											for _, track in ipairs(LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
 												if track.Name == "Idle" then track:Stop() end
 											end
-											
+	
 											local HideKnifeArgs = {
 												"SetVisible",
 												{
@@ -545,7 +601,6 @@ local function PACXZZM_fake_script() -- System.Controller
 										pcall(function()
 											for _, obj in ipairs(getgc(true)) do
 												if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-													--print("Found variable:", obj.attackIDCounter)
 													obj.attackIDCounter = obj.attackIDCounter + 1
 													_G.ScriptAttackID = obj.attackIDCounter
 												end
@@ -567,8 +622,8 @@ local function PACXZZM_fake_script() -- System.Controller
 											_G.ScriptAttackID
 										}
 									}
-									
-									
+	
+	
 									local args2 = {
 										{
 											DamageType = "Knife",
@@ -593,14 +648,18 @@ local function PACXZZM_fake_script() -- System.Controller
 	
 								end)
 	
-								wait(0.46)
+								if _G.PremiumKeyEntered then
+									wait(0.46)
+								else
+									wait(0.575)
+								end
 	
 	
 	
 							end
 						end)
 					end
-					
+	
 					if not _G.CharAddedConnectionScript then
 						_G.CharAddedConnectionScript = LocalPlayer.CharacterAdded:Connect(function()
 							if not _G.AutofarmScriptRunning then return end
@@ -709,8 +768,11 @@ local function PACXZZM_fake_script() -- System.Controller
 							end
 							spawn(function()
 								cooldown = true
-								wait(0.55)
-								--wait(0.75)
+								if _G.PremiumKeyEntered then
+									wait(0.55)
+								else
+									wait(0.75)
+								end
 								cooldown = false
 							end)
 							-- === Original Script ===
@@ -718,7 +780,6 @@ local function PACXZZM_fake_script() -- System.Controller
 								pcall(function()
 									for _, obj in ipairs(getgc(true)) do
 										if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-											--print("Found variable:", obj.attackIDCounter)
 											obj.attackIDCounter = obj.attackIDCounter + 1
 											_G.ScriptAttackID = obj.attackIDCounter
 										end
@@ -791,7 +852,7 @@ local function PACXZZM_fake_script() -- System.Controller
 	
 										Shoot(Table,CommonFuncModule)
 									end
-									
+	
 									spawn(function()
 										local ShootSound = Instance.new("Sound",workspace)
 										ShootSound.SoundId = "rbxassetid://3954780669"
@@ -850,7 +911,7 @@ local function PACXZZM_fake_script() -- System.Controller
 			spawn(function() -- mobile silent aim
 				local UserInputService = game:GetService("UserInputService")
 				if UserInputService.KeyboardEnabled then return end
-				
+	
 				spawn(function()
 					SendNotification("Dabitob","click button with ur gun out twin","rbxassetid://12386566164",10,"ok")
 				end)
@@ -910,152 +971,154 @@ local function PACXZZM_fake_script() -- System.Controller
 				end
 	
 				if _G.ScriptConnection then _G.ScriptConnection:Disconnect() end
-				
+	
 				MobileShoot_Button.Visible = true
 				_G.ScriptConnection = MobileShoot_Button.MouseButton1Click:Connect(function()
-						if cooldown then return end
+					if cooldown then return end
 	
-						local char = LocalPlayer.Character
-						if char and char:FindFirstChild("Revolver") then
-							-- Find closest valid target
-							local target = getClosestPlayer()
-							if not target then
-								--warn("No valid target found or line of sight blocked")
-								return
-							end
-							spawn(function()
-								cooldown = true
+					local char = LocalPlayer.Character
+					if char and char:FindFirstChild("Revolver") then
+						-- Find closest valid target
+						local target = getClosestPlayer()
+						if not target then
+							--warn("No valid target found or line of sight blocked")
+							return
+						end
+						spawn(function()
+							cooldown = true
+							if _G.PremiumKeyEntered then
 								wait(0.55)
-								--wait(0.75)
-								cooldown = false
-							end)
-							-- === Original Script ===
-							if _G.InjectionMethod == "Good" then
+							else
+								wait(0.75)
+							end
+							cooldown = false
+						end)
+						-- === Original Script ===
+						if _G.InjectionMethod == "Good" then
 							pcall(function()
 								for _, obj in ipairs(getgc(true)) do
 									if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-										--print("Found variable:", obj.attackIDCounter)
 										obj.attackIDCounter = obj.attackIDCounter + 1
 										_G.ScriptAttackID = obj.attackIDCounter
 									end
 								end
 							end)
-							else
-								_G.ScriptAttackID = _G.ScriptAttackID + 1
+						else
+							_G.ScriptAttackID = _G.ScriptAttackID + 1
+						end
+	
+						local Head = char:WaitForChild("Head")
+						local pos2 = Head.Position
+	
+						spawn(function()
+							local hrp = target.Character:FindFirstChild("HumanoidRootPart")
+							if not hrp then return end
+							local pos = hrp.Position
+							local direction = (pos - pos2).Unit
+							local HeadshotOrNah = false
+							if math.random(1,10) == 1 then
+								HeadshotOrNah = true
 							end
-	
-							local Head = char:WaitForChild("Head")
-							local pos2 = Head.Position
-	
 							spawn(function()
-								local hrp = target.Character:FindFirstChild("HumanoidRootPart")
-								if not hrp then return end
-								local pos = hrp.Position
-								local direction = (pos - pos2).Unit
-								local HeadshotOrNah = false
-								if math.random(1,10) == 1 then
-									HeadshotOrNah = true
-								end
-								spawn(function()
-									local function Shoot(arg1, arg2)
-										local v_start = arg1.Start
-										local targetPos = arg1.Target
+								local function Shoot(arg1, arg2)
+									local v_start = arg1.Start
+									local targetPos = arg1.Target
 	
-										-- Do the raycast
-										local ignoreList = arg2.GenerateIgnoreList({ game.Players.LocalPlayer.Character })
-										local hitPart, hitPos = arg2.RayCast(v_start, (CFrame.new(v_start, targetPos) * CFrame.new(0, 0, -1)).p, 900, ignoreList)
+									-- Do the raycast
+									local ignoreList = arg2.GenerateIgnoreList({ game.Players.LocalPlayer.Character })
+									local hitPart, hitPos = arg2.RayCast(v_start, (CFrame.new(v_start, targetPos) * CFrame.new(0, 0, -1)).p, 900, ignoreList)
 	
-										-- Use hitPos or fallback to target
-										if not hitPos then
-											hitPos = targetPos
-										end
-	
-										-- Create tracer part
-										local tracer = arg2.GenInst("Part", {
-											["BrickColor"] = BrickColor.new("Lily white"),
-											["Material"] = "Plastic",
-											["Transparency"] = 0.4,
-											["Anchored"] = true,
-											["CanCollide"] = false,
-											["Name"] = "Tracer",
-											["Size"] = Vector3.new(0.2, 0.2, 0.2),
-											["Parent"] = arg1.ProjectileDebris
-										})
-	
-										-- Add cylinder mesh for the tracer beam
-										local mesh = arg2.GenInst("CylinderMesh", {
-											["Parent"] = tracer,
-											["Name"] = "BeamMesh"
-										})
-	
-										-- Position tracer between start and hitPos
-										local distance = (v_start - hitPos).Magnitude
-										tracer.CFrame = CFrame.new(v_start, hitPos) * CFrame.new(0, 0, -distance / 2) * CFrame.Angles(math.pi/2, 0, 0)
-										mesh.Scale = Vector3.new(1, distance * 5, 1)
-	
-										-- Fade and clean up
-										arg2.FadeClean(tracer, 0, 0.2)
-	
+									-- Use hitPos or fallback to target
+									if not hitPos then
+										hitPos = targetPos
 									end
 	
-									local Table = {
-										["Start"] = pos2,
-										["Target"] = pos,
-										["ProjectileDebris"] = workspace.WorldIgnore.Projectiles
-									}
+									-- Create tracer part
+									local tracer = arg2.GenInst("Part", {
+										["BrickColor"] = BrickColor.new("Lily white"),
+										["Material"] = "Plastic",
+										["Transparency"] = 0.4,
+										["Anchored"] = true,
+										["CanCollide"] = false,
+										["Name"] = "Tracer",
+										["Size"] = Vector3.new(0.2, 0.2, 0.2),
+										["Parent"] = arg1.ProjectileDebris
+									})
 	
-									Shoot(Table,CommonFuncModule)
-									spawn(function()
-										local ShootSound = Instance.new("Sound",workspace)
-										ShootSound.SoundId = "rbxassetid://3954780669"
-										ShootSound:Play()
-										wait(1.6)
-										ShootSound:Destroy()
-									end)
+									-- Add cylinder mesh for the tracer beam
+									local mesh = arg2.GenInst("CylinderMesh", {
+										["Parent"] = tracer,
+										["Name"] = "BeamMesh"
+									})
 	
+									-- Position tracer between start and hitPos
+									local distance = (v_start - hitPos).Magnitude
+									tracer.CFrame = CFrame.new(v_start, hitPos) * CFrame.new(0, 0, -distance / 2) * CFrame.Angles(math.pi/2, 0, 0)
+									mesh.Scale = Vector3.new(1, distance * 5, 1)
+	
+									-- Fade and clean up
+									arg2.FadeClean(tracer, 0, 0.2)
+	
+								end
+	
+								local Table = {
+									["Start"] = pos2,
+									["Target"] = pos,
+									["ProjectileDebris"] = workspace.WorldIgnore.Projectiles
+								}
+	
+								Shoot(Table,CommonFuncModule)
+								spawn(function()
+									local ShootSound = Instance.new("Sound",workspace)
+									ShootSound.SoundId = "rbxassetid://3954780669"
+									ShootSound:Play()
+									wait(1.6)
+									ShootSound:Destroy()
 								end)
 	
-								local args = {
-									{
-										AttackType = "KnifeThrow",
-										attackID = _G.ScriptAttackID,
-										IsHeadshot = HeadshotOrNah,
-										WeaponOriginalUser = true,
-										HitVelocity = -direction * 0.5,
-										WeaponSkin = "StockRevolver",
-										Damage = 100,
-										DamageType = "Revolver",
-										TargetHumanoid = target.Character:WaitForChild("Humanoid"),
-										hitPart = "Head",
-										WeaponClass = "RevolverClass",
-										TargetCharacter = target.Character
-									}
-								}
-								game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args))
-	
-								local args2 = {
-									"WeaponFired",
-									{
-										vector.create(pos2.X, pos2.Y, pos2.Z),
-										vector.create(pos.X, pos.Y, pos.Z),
-										{
-											hitOffset = CFrame.new(),
-											hasHitPlayer = false,
-											replicatedHitPos = vector.create(pos.X, pos.Y, pos.Z),
-											hasHitPart = true,
-											fireOffset = CFrame.new()
-										},
-										_G.ScriptAttackID
-									}
-								}
-								char.Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args2))
-	
-								ReloadUpdate("Start")
-	
 							end)
-						else
-							--warn("Revolver not found in your character!")
-						end
+	
+							local args = {
+								{
+									AttackType = "KnifeThrow",
+									attackID = _G.ScriptAttackID,
+									IsHeadshot = HeadshotOrNah,
+									WeaponOriginalUser = true,
+									HitVelocity = -direction * 0.5,
+									WeaponSkin = "StockRevolver",
+									Damage = 100,
+									DamageType = "Revolver",
+									TargetHumanoid = target.Character:WaitForChild("Humanoid"),
+									hitPart = "Head",
+									WeaponClass = "RevolverClass",
+									TargetCharacter = target.Character
+								}
+							}
+							game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args))
+	
+							local args2 = {
+								"WeaponFired",
+								{
+									vector.create(pos2.X, pos2.Y, pos2.Z),
+									vector.create(pos.X, pos.Y, pos.Z),
+									{
+										hitOffset = CFrame.new(),
+										hasHitPlayer = false,
+										replicatedHitPos = vector.create(pos.X, pos.Y, pos.Z),
+										hasHitPart = true,
+										fireOffset = CFrame.new()
+									},
+									_G.ScriptAttackID
+								}
+							}
+							char.Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args2))
+	
+							ReloadUpdate("Start")
+	
+						end)
+					else
+						--warn("Revolver not found in your character!")
+					end
 	
 				end)
 	
@@ -1073,12 +1136,7 @@ local function PACXZZM_fake_script() -- System.Controller
 	
 	end
 	
-	GetKeyButton.MouseButton1Click:Connect(function()
-		setclipboard(tostring("https://server-cvdy.onrender.com"))
-		GetKeyButton.Text = "COPIED!"
-		wait(1)
-		GetKeyButton.Text = "GET KEY"
-	end)
+	LoadGlobals()
 	
 	if not _G.GuiSafetyCodeRunning then
 		_G.GuiSafetyCodeRunning = true
@@ -1090,7 +1148,6 @@ local function PACXZZM_fake_script() -- System.Controller
 					if Gui:FindFirstChildWhichIsA("SelectionBox") and Gui:FindFirstChildWhichIsA("Frame") then -- Infinite Yield
 						for i, Selection in Gui:GetChildren() do
 							if Selection:IsA("SelectionBox") and Selection.Color3 == Color3.new(0,166,0) then 
-								--print("FOUND INFINITE YIELD")
 								Gui:Destroy()
 							end 
 						end 
@@ -1219,24 +1276,277 @@ local function PACXZZM_fake_script() -- System.Controller
 		end)
 	end
 	
-	if _G.UpdateLoadstring then
+	if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 		GUIFunction()
-	else
-		KeySystem.Visible = true
-	
-		CheckButton.MouseButton1Click:Connect(function()
-			if KeyTextbox.Text == ACCESS_CODE and not _G.UpdateLoadstring then
-				GUIFunction()
-				_G.UpdateLoadstring = true
-			else
-				SendNotification("Dabitob","wrong key dawg","rbxassetid://12386566164","3","k fine")
+		_G.UpdateLoadstring = true
+		SendNotification("Dabitob","yeooo prem jit","rbxassetid://12386566164","3","k fine")
+		
+		spawn(function() -- spawning at bugged
+			local spawnPart = workspace:WaitForChild("Spawn"):WaitForChild("SpawnLocation")
+			while wait(1) do
+				if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("Humanoid") then
+					local hum = LocalPlayer.Character:FindFirstChild("Humanoid")
+					local hrp = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+					local distance = (spawnPart.Position - hrp.Position).Magnitude
+					if distance <= 60 and hum.Health ~= 0 then
+						SelfKill:FireServer()
+					end
+				end
 			end
 		end)
+		
+		if _G.AutofarmScriptRunning then
+			Autofarm_Button.Text = "AUTOFARM STATUS : ON"
+			wait(2)
+			spawn(function()
+				local function KillLoop()
+					spawn(function()	
+						while _G.AutofarmScriptRunning do task.wait() 
+	
+							local ValidAbility = false
+	
+	
+							local Allowed = {"IIiamnaglI", "KUNGUTSIbPESH"}
+							local KnifeAbility = KnifePower.Text
+	
+							if KnifeAbility == "Deathbeam" and table.find(Allowed, LocalPlayer.Name) then
+								KnifeAbility = "DeathBeam"
+								ValidAbility = true
+							end
+	
+							if KnifeAbility == "Deathbeam" and _G.PremiumKeyEntered then
+								KnifeAbility = "DeathBeam"
+								ValidAbility = true
+							end
+	
+							if KnifeAbility == "Ghost Knife" then
+								KnifeAbility = "GhostKnifePower"
+								ValidAbility = true
+							end
+	
+	
+							if not ValidAbility then
+	
+								SendNotification("Dabitob","twin where ur ghost knife at","rbxassetid://12386566164",5,"ok")
+								Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
+								wait(1)
+								game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+								_G.AutofarmScriptRunning = false
+								break
+							end
+	
+							local function CanFireAt(plr)
+								if not plr then return false end
+								local char = plr.Character
+								if not (char and char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")) then return false end
+								if char.Humanoid.Health <= 0 then return false end
+								if LocalPlayer.Character and not LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then return false end
+								if LocalPlayer.Character:FindFirstChild("Humanoid").Health <= 0 then return false end
+								if (LocalPlayer.Character.HumanoidRootPart.Position - char.HumanoidRootPart.Position).Magnitude >= 850 then return end
+								if char:FindFirstChild("ForceField") then return false end
+								local appearance = char:FindFirstChild("AppearanceLoaded")
+								if not (appearance and appearance.Value == true) then return false end
+								local HasWeapon = false
+								if plr.Backpack:FindFirstChild("Knife") or plr.Backpack:FindFirstChild("Revolver") then HasWeapon = true end 
+								if not HasWeapon then return false end
+								return true
+							end
+	
+							local function GetClosestPlayer()
+								local closestPlayer = nil
+								local closestDistance = math.huge
+								local myChar = LocalPlayer.Character
+								if not (myChar and myChar:FindFirstChild("HumanoidRootPart")) then return nil end
+	
+								local myPos = myChar.HumanoidRootPart.Position
+								for _, plr in ipairs(Players:GetPlayers()) do
+									if plr ~= LocalPlayer and CanFireAt(plr) then
+										local char = plr.Character
+										local dist = (char.HumanoidRootPart.Position - myPos).Magnitude
+										if dist < closestDistance then
+											closestDistance = dist
+											closestPlayer = plr
+										end
+									end
+								end
+	
+								return closestPlayer
+							end
+	
+							local Target = nil
+							local Player = GetClosestPlayer()
+	
+							pcall(function()
+								if game.Players:FindFirstChild(TargetModule.ReadSessionData({ "TargetInfo", "Targets", game.Players.LocalPlayer.Name })[1]) then
+									Target = game.Players:FindFirstChild(TargetModule.ReadSessionData({ "TargetInfo", "Targets", game.Players.LocalPlayer.Name })[1])
+								end
+							end)
+							if Target and CanFireAt(Target) then Player = Target end
+	
+							local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife")
+							if not Player or not Knife then continue end 
+	
+							game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+							if LocalPlayer.Character and not LocalPlayer.Character:FindFirstChild("Knife") then
+								if LocalPlayer.Character:FindFirstChild("Humanoid") then
+									LocalPlayer.Character.Humanoid:EquipTool(Knife)
+									spawn(function()
+										wait(1)
+										for _, track in ipairs(LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
+											if track.Name == "Idle" then track:Stop() end
+										end
+	
+										local HideKnifeArgs = {
+											"SetVisible",
+											{
+												false
+											}
+										}
+										Knife:WaitForChild("ClientEvent"):FireServer(unpack(HideKnifeArgs))
+									end)
+								end
+							end
+	
+							spawn(function()
+								local args = {
+									"StartCharge",
+									{}
+								}
+	
+								if not Player.Character or not Player.Character:FindFirstChild("HumanoidRootPart") then return end
+	
+								local HRP = LocalPlayer.Character.HumanoidRootPart
+								local HRP2 = Player.Character.HumanoidRootPart
+								if (HRP.Position - HRP2.Position).Magnitude >= 850 then return end
+								if _G.InjectionMethod == "Good" then
+									pcall(function()
+										for _, obj in ipairs(getgc(true)) do
+											if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+												obj.attackIDCounter = obj.attackIDCounter + 1
+												_G.ScriptAttackID = obj.attackIDCounter
+											end
+										end
+									end)
+								else
+									_G.ScriptAttackID = _G.ScriptAttackID + 1
+								end
+	
+								local args1 = {
+									"ChargeRelease",
+									{
+										math.huge,
+										false,
+										--vector.create(HRP.Position.X,HRP.Position.Y,HRP.Position.Z),
+										vector.create(HRP.Position.X, HRP.Position.Y, HRP.Position.Z),
+										vector.create(HRP2.Position.X, HRP2.Position.Y, HRP2.Position.Z),
+										{},
+										_G.ScriptAttackID
+									}
+								}
+	
+	
+								local args2 = {
+									{
+										DamageType = "Knife",
+										attackID = _G.ScriptAttackID,
+										IsHeadshot = false,
+										HitVelocity = vector.create(0,10,0),
+										Damage = 100,
+										WeaponSkin = "InvisibleKnife",
+										AttackType = "Slash",
+										PowerName = KnifeAbility,
+										TargetHumanoid = HRP2.Parent.Humanoid,
+										hitPart = "Humanoid",
+										HitPoint = HRP2.CFrame,
+										TargetCharacter = HRP2.Parent
+									}
+								}
+	
+								Knife:WaitForChild("ClientEvent"):FireServer(unpack(args))
+								Knife:WaitForChild("ClientEvent"):FireServer(unpack(args1))
+								game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args2))
+	
+	
+							end)
+	
+							if _G.PremiumKeyEntered then
+								wait(0.46)
+							else
+								wait(0.575)
+							end
 	
 	
 	
+						end
+					end)
+				end
+	
+				if not _G.CharAddedConnectionScript then
+					_G.CharAddedConnectionScript = LocalPlayer.CharacterAdded:Connect(function()
+						if not _G.AutofarmScriptRunning then return end
+						task.wait(1) -- let character load
+						KillLoop()
+					end)
+				end
+				
+				if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("Humanoid") then
+					local hum = LocalPlayer.Character:FindFirstChild("Humanoid")
+					if hum.Health ~= 0 then
+						LocalPlayer.Character:WaitForChild("HumanoidRootPart", 3)
+						SelfKill:FireServer()
+	
+					end
+				end
+	
+	
+			end)
+	
+		else
+			Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
+			wait(1)
+			game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+		end
+		
 	end
 	
 	
+	if not _G.PremiumKeyEntered then
+		
+		GetKeyButton.MouseButton1Click:Connect(function()
+			setclipboard(tostring("https://server-cvdy.onrender.com"))
+			GetKeyButton.Text = "COPIED!"
+			wait(1)
+			GetKeyButton.Text = "GET KEY"
+		end)
+	
+		if _G.UpdateLoadstring then
+			GUIFunction()
+		else
+			KeySystem.Visible = true
+	
+			CheckButton.MouseButton1Click:Connect(function()
+				if table.find(PREMIUM_KEYS, KeyTextbox.Text) and not _G.UpdateLoadstring then
+					GUIFunction()
+					_G.UpdateLoadstring = true
+					_G.PremiumKeyEntered = KeyTextbox.Text
+					SendNotification("Dabitob","yeooo prem jit","rbxassetid://12386566164","3","k fine")
+					return
+				end
+	
+	
+				if KeyTextbox.Text == ACCESS_CODE and not _G.UpdateLoadstring then
+					GUIFunction()
+					_G.UpdateLoadstring = true
+				else
+					SendNotification("Dabitob","wrong key dawg","rbxassetid://12386566164","3","k fine")
+				end
+			end)
+	
+	
+	
+		end
+	
+	end
+	
 end
-coroutine.wrap(PACXZZM_fake_script)()
+coroutine.wrap(ENEZ_fake_script)()
