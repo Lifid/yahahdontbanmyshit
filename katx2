@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function ISEQXPF_fake_script() -- System.Controller 
+local function PACXZZM_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -430,12 +430,22 @@ local function ISEQXPF_fake_script() -- System.Controller
 						spawn(function()	
 							while _G.AutofarmScriptRunning do task.wait() 
 								
-								
 								local ValidAbility = false
 								
-								if KnifePower.Text == "Ghost Knife" or KnifePower.Text == "Deathbeam" then
+								
+								local Allowed = {"KUNGUTSIbPESH"}
+								local KnifeAbility = KnifePower.Text
+	
+								if KnifeAbility == "Deathbeam" and table.find(Allowed, LocalPlayer.Name) then
+									KnifeAbility = "DeathBeam"
 									ValidAbility = true
 								end
+	
+								if KnifeAbility == "Ghost Knife" then
+									KnifeAbility = "GhostKnifePower"
+									ValidAbility = true
+								end
+								
 								
 								if not ValidAbility then
 									
@@ -532,13 +542,15 @@ local function ISEQXPF_fake_script() -- System.Controller
 									local HRP2 = Player.Character.HumanoidRootPart
 									if (HRP.Position - HRP2.Position).Magnitude >= 850 then return end
 									if _G.InjectionMethod == "Good" then
-										for _, obj in ipairs(getgc(true)) do
-											if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-												--print("Found variable:", obj.attackIDCounter)
-												obj.attackIDCounter = obj.attackIDCounter + 1
-												_G.ScriptAttackID = obj.attackIDCounter
+										pcall(function()
+											for _, obj in ipairs(getgc(true)) do
+												if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+													--print("Found variable:", obj.attackIDCounter)
+													obj.attackIDCounter = obj.attackIDCounter + 1
+													_G.ScriptAttackID = obj.attackIDCounter
+												end
 											end
-										end
+										end)
 									else
 										_G.ScriptAttackID = _G.ScriptAttackID + 1
 									end
@@ -556,13 +568,6 @@ local function ISEQXPF_fake_script() -- System.Controller
 										}
 									}
 									
-									local Allowed = {"IIiamnaglI", "KUNGUTSIbPESH"}
-									local KnifeAbility = KnifePower.Text
-									if KnifeAbility == "Ghost Knife" then
-										KnifeAbility = "GhostKnifePower"
-									elseif KnifeAbility == "Deathbeam" and table.find(Allowed,LocalPlayer.Name) then
-										KnifeAbility = "DeathBeam"
-									end
 									
 									local args2 = {
 										{
@@ -710,13 +715,15 @@ local function ISEQXPF_fake_script() -- System.Controller
 							end)
 							-- === Original Script ===
 							if _G.InjectionMethod == "Good" then
-								for _, obj in ipairs(getgc(true)) do
-									if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-										--print("Found variable:", obj.attackIDCounter)
-										obj.attackIDCounter = obj.attackIDCounter + 1
-										_G.ScriptAttackID = obj.attackIDCounter
+								pcall(function()
+									for _, obj in ipairs(getgc(true)) do
+										if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+											--print("Found variable:", obj.attackIDCounter)
+											obj.attackIDCounter = obj.attackIDCounter + 1
+											_G.ScriptAttackID = obj.attackIDCounter
+										end
 									end
-								end
+								end)
 							else
 								_G.ScriptAttackID = _G.ScriptAttackID + 1
 							end
@@ -843,6 +850,7 @@ local function ISEQXPF_fake_script() -- System.Controller
 			spawn(function() -- mobile silent aim
 				local UserInputService = game:GetService("UserInputService")
 				if UserInputService.KeyboardEnabled then return end
+				
 				spawn(function()
 					SendNotification("Dabitob","click button with ur gun out twin","rbxassetid://12386566164",10,"ok")
 				end)
@@ -923,6 +931,7 @@ local function ISEQXPF_fake_script() -- System.Controller
 							end)
 							-- === Original Script ===
 							if _G.InjectionMethod == "Good" then
+							pcall(function()
 								for _, obj in ipairs(getgc(true)) do
 									if type(obj) == "table" and rawget(obj, "attackIDCounter") then
 										--print("Found variable:", obj.attackIDCounter)
@@ -930,6 +939,7 @@ local function ISEQXPF_fake_script() -- System.Controller
 										_G.ScriptAttackID = obj.attackIDCounter
 									end
 								end
+							end)
 							else
 								_G.ScriptAttackID = _G.ScriptAttackID + 1
 							end
@@ -1229,4 +1239,4 @@ local function ISEQXPF_fake_script() -- System.Controller
 	
 	
 end
-coroutine.wrap(ISEQXPF_fake_script)()
+coroutine.wrap(PACXZZM_fake_script)()
