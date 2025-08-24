@@ -17,17 +17,19 @@ local MuteButton = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
 local SilentButton = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
-local KeySystem = Instance.new("Frame")
+local MobileShoot = Instance.new("ImageButton")
 local UICorner_6 = Instance.new("UICorner")
-local Key = Instance.new("TextBox")
+local KeySystem = Instance.new("Frame")
 local UICorner_7 = Instance.new("UICorner")
+local Key = Instance.new("TextBox")
+local UICorner_8 = Instance.new("UICorner")
 local Title = Instance.new("TextLabel")
 local Check = Instance.new("ImageButton")
-local UICorner_8 = Instance.new("UICorner")
-local Retrieve = Instance.new("TextButton")
 local UICorner_9 = Instance.new("UICorner")
-local Background_2 = Instance.new("ImageLabel")
+local Retrieve = Instance.new("TextButton")
 local UICorner_10 = Instance.new("UICorner")
+local Background_2 = Instance.new("ImageLabel")
+local UICorner_11 = Instance.new("UICorner")
 
 --Properties:
 
@@ -164,6 +166,21 @@ SilentButton.TextWrapped = true
 
 UICorner_5.Parent = SilentButton
 
+MobileShoot.Name = "MobileShoot"
+MobileShoot.Parent = Main
+MobileShoot.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+MobileShoot.BackgroundTransparency = 0.650
+MobileShoot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+MobileShoot.BorderSizePixel = 0
+MobileShoot.Position = UDim2.new(0.290914476, 0, -0.861991286, 0)
+MobileShoot.Size = UDim2.new(0.441145986, 0, 0.720618546, 0)
+MobileShoot.Visible = false
+MobileShoot.Image = "rbxassetid://11702759774"
+MobileShoot.ImageColor3 = Color3.fromRGB(71, 71, 71)
+
+UICorner_6.CornerRadius = UDim.new(0, 1000)
+UICorner_6.Parent = MobileShoot
+
 KeySystem.Name = "KeySystem"
 KeySystem.Parent = System
 KeySystem.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -174,7 +191,7 @@ KeySystem.Position = UDim2.new(0.40697673, 0, 0.422185421, 0)
 KeySystem.Size = UDim2.new(0.185551703, 0, 0.20198676, 0)
 KeySystem.Visible = false
 
-UICorner_6.Parent = KeySystem
+UICorner_7.Parent = KeySystem
 
 Key.Name = "Key"
 Key.Parent = KeySystem
@@ -193,7 +210,7 @@ Key.TextScaled = true
 Key.TextSize = 14.000
 Key.TextWrapped = true
 
-UICorner_7.Parent = Key
+UICorner_8.Parent = Key
 
 Title.Name = "Title"
 Title.Parent = KeySystem
@@ -220,7 +237,7 @@ Check.Position = UDim2.new(0.786666691, 0, 0.525137007, 0)
 Check.Size = UDim2.new(0.163333327, 0, 0.401639581, 0)
 Check.Image = "rbxassetid://14562122532"
 
-UICorner_8.Parent = Check
+UICorner_9.Parent = Check
 
 Retrieve.Name = "Retrieve"
 Retrieve.Parent = KeySystem
@@ -237,7 +254,7 @@ Retrieve.TextScaled = true
 Retrieve.TextSize = 14.000
 Retrieve.TextWrapped = true
 
-UICorner_9.Parent = Retrieve
+UICorner_10.Parent = Retrieve
 
 Background_2.Name = "Background"
 Background_2.Parent = KeySystem
@@ -249,11 +266,11 @@ Background_2.Size = UDim2.new(1, 0, 1, 0)
 Background_2.ZIndex = 0
 Background_2.ImageTransparency = 0.610
 
-UICorner_10.Parent = Background_2
+UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function YVLNW_fake_script() -- System.Controller 
+local function TPHQDQ_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -273,7 +290,7 @@ local function YVLNW_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "WEARESOBACK"
+	local ACCESS_CODE = "1200lines"
 	--[[
 	
 	
@@ -288,9 +305,11 @@ local function YVLNW_fake_script() -- System.Controller
 	local ServerHop_Buttn = Main:WaitForChild("ServerHopButton")
 	local Mute_Button = Main:WaitForChild("MuteButton")
 	local SilentAim_Button = Main:WaitForChild("SilentButton")
+	local MobileShoot_Button = Main:WaitForChild("MobileShoot")
 	
 	local KnifePower = nil
 	local CommonFuncModule = nil
+	local TargetModule = nil
 	
 	spawn(function()
 		KnifePower = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Menu"):WaitForChild("InventoryUI"):WaitForChild("LoadoutScreen"):WaitForChild("holder"):WaitForChild("EquippedItems"):WaitForChild("Left"):WaitForChild("KnifePowers"):WaitForChild("ItemName")
@@ -300,6 +319,30 @@ local function YVLNW_fake_script() -- System.Controller
 		pcall(function()
 			CommonFuncModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions)
 		end)
+	end)
+	
+	spawn(function()
+		TargetModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientDataManager)
+	end)
+	
+	_G.InjectionMethod = _G.InjectionMethod or nil
+	
+	spawn(function()
+		pcall(function()
+			for _, obj in ipairs(getgc(true)) do
+				if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+					_G.ScriptAttackID = obj.attackIDCounter
+					_G.InjectionMethod = "Good"
+				end
+			end
+		end)
+	
+		if not _G.ScriptAttackID then
+			_G.InjectionMethod = "Weak"
+			_G.ScriptAttackID = 0
+		end
+		
+		SendNotification("Dabitob","twin ur executor level is ".._G.InjectionMethod.."","rbxassetid://12386566164",5,"ok")
 	end)
 	
 	if _G.RunningGui then _G.RunningGui:Destroy() end
@@ -367,12 +410,6 @@ local function YVLNW_fake_script() -- System.Controller
 		if FoundHigherAuthority then ServerHop() end
 	end
 	
-	local TargetModule = nil
-	
-	spawn(function()
-		TargetModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientDataManager)
-	end)
-	
 	function GUIFunction()
 		Main.Visible = true
 		Autofarm_Button.MouseButton1Click:Connect(function()
@@ -399,6 +436,7 @@ local function YVLNW_fake_script() -- System.Controller
 									Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
 									wait(1)
 									game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+									_G.AutofarmScriptRunning = false
 									break
 								end
 								
@@ -461,8 +499,16 @@ local function YVLNW_fake_script() -- System.Controller
 										spawn(function()
 											wait(1)
 											for _, track in ipairs(LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
-												track:Stop()
+												if track.Name == "Idle" then track:Stop() end
 											end
+											
+											local HideKnifeArgs = {
+												"SetVisible",
+												{
+													false
+												}
+											}
+											Knife:WaitForChild("ClientEvent"):FireServer(unpack(HideKnifeArgs))
 										end)
 									end
 								end
@@ -478,13 +524,18 @@ local function YVLNW_fake_script() -- System.Controller
 									local HRP = LocalPlayer.Character.HumanoidRootPart
 									local HRP2 = Player.Character.HumanoidRootPart
 									if (HRP.Position - HRP2.Position).Magnitude >= 850 then return end
-									for _, obj in ipairs(getgc(true)) do
-										if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-											--print("Found variable:", obj.attackIDCounter)
-											obj.attackIDCounter = obj.attackIDCounter + 1
-											_G.ScriptAttackID = obj.attackIDCounter
+									if _G.InjectionMethod == "Good" then
+										for _, obj in ipairs(getgc(true)) do
+											if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+												--print("Found variable:", obj.attackIDCounter)
+												obj.attackIDCounter = obj.attackIDCounter + 1
+												_G.ScriptAttackID = obj.attackIDCounter
+											end
 										end
+									else
+										_G.ScriptAttackID = _G.ScriptAttackID + 1
 									end
+	
 									local args1 = {
 										"ChargeRelease",
 										{
@@ -560,10 +611,12 @@ local function YVLNW_fake_script() -- System.Controller
 		end)
 	
 		SilentAim_Button.MouseButton1Click:Connect(function()
-			if not CommonFuncModule then SendNotification("Dabitob","twin ur exec buns","rbxassetid://12386566164",5,"ok")  return end
-			spawn(function()
+			spawn(function() -- pc silent aim
 				local UserInputService = game:GetService("UserInputService")
-	
+				if UserInputService.TouchEnabled then return end
+				spawn(function()
+					SendNotification("Dabitob","click e with ur gun out twin","rbxassetid://12386566164",10,"ok")
+				end)
 				local cooldown = false
 	
 				local function canSeeTarget(originPart, targetPart)
@@ -641,12 +694,229 @@ local function YVLNW_fake_script() -- System.Controller
 								cooldown = false
 							end)
 							-- === Original Script ===
-							for _, obj in ipairs(getgc(true)) do
-								if type(obj) == "table" and rawget(obj, "attackIDCounter") then
-									--print("Found variable:", obj.attackIDCounter)
-									obj.attackIDCounter = obj.attackIDCounter + 1
-									_G.ScriptAttackID = obj.attackIDCounter
+							if _G.InjectionMethod == "Good" then
+								for _, obj in ipairs(getgc(true)) do
+									if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+										--print("Found variable:", obj.attackIDCounter)
+										obj.attackIDCounter = obj.attackIDCounter + 1
+										_G.ScriptAttackID = obj.attackIDCounter
+									end
 								end
+							else
+								_G.ScriptAttackID = _G.ScriptAttackID + 1
+							end
+	
+							local Head = char:WaitForChild("Head")
+							local pos2 = Head.Position
+	
+							spawn(function()
+								local hrp = target.Character:FindFirstChild("HumanoidRootPart")
+								if not hrp then return end
+								local pos = hrp.Position
+								local direction = (pos - pos2).Unit
+								local HeadshotOrNah = false
+								if math.random(1,10) == 1 then
+									HeadshotOrNah = true
+								end
+								spawn(function()
+									if CommonFuncModule then
+										local function Shoot(arg1, arg2)
+											local v_start = arg1.Start
+											local targetPos = arg1.Target
+	
+											-- Do the raycast
+											local ignoreList = arg2.GenerateIgnoreList({ game.Players.LocalPlayer.Character })
+											local hitPart, hitPos = arg2.RayCast(v_start, (CFrame.new(v_start, targetPos) * CFrame.new(0, 0, -1)).Position, 900, ignoreList)
+	
+											-- Use hitPos or fallback to target
+											if not hitPos then
+												hitPos = targetPos
+											end
+	
+											-- Create tracer part
+											local tracer = arg2.GenInst("Part", {
+												["BrickColor"] = BrickColor.new("Lily white"),
+												["Material"] = "Plastic",
+												["Transparency"] = 0.4,
+												["Anchored"] = true,
+												["CanCollide"] = false,
+												["Name"] = "Tracer",
+												["Size"] = Vector3.new(0.2, 0.2, 0.2),
+												["Parent"] = arg1.ProjectileDebris
+											})
+	
+											-- Add cylinder mesh for the tracer beam
+											local mesh = arg2.GenInst("CylinderMesh", {
+												["Parent"] = tracer,
+												["Name"] = "BeamMesh"
+											})
+	
+											-- Position tracer between start and hitPos
+											local distance = (v_start - hitPos).Magnitude
+											tracer.CFrame = CFrame.new(v_start, hitPos) * CFrame.new(0, 0, -distance / 2) * CFrame.Angles(math.pi/2, 0, 0)
+											mesh.Scale = Vector3.new(1, distance * 5, 1)
+	
+											-- Fade and clean up
+											arg2.FadeClean(tracer, 0, 0.2)
+	
+										end
+	
+										local Table = {
+											["Start"] = pos2,
+											["Target"] = pos,
+											["ProjectileDebris"] = workspace.WorldIgnore.Projectiles
+										}
+	
+										Shoot(Table,CommonFuncModule)
+									end
+									
+									spawn(function()
+										local ShootSound = Instance.new("Sound",workspace)
+										ShootSound.SoundId = "rbxassetid://3954780669"
+										ShootSound:Play()
+										wait(1.6)
+										ShootSound:Destroy()
+									end)
+	
+								end)
+	
+								local args = {
+									{
+										AttackType = "KnifeThrow",
+										attackID = _G.ScriptAttackID,
+										IsHeadshot = HeadshotOrNah,
+										WeaponOriginalUser = true,
+										HitVelocity = -direction * 0.5,
+										WeaponSkin = "StockRevolver",
+										Damage = 100,
+										DamageType = "Revolver",
+										TargetHumanoid = target.Character:WaitForChild("Humanoid"),
+										hitPart = "Head",
+										WeaponClass = "RevolverClass",
+										TargetCharacter = target.Character
+									}
+								}
+								game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Gameplay"):WaitForChild("DamageRequest"):FireServer(unpack(args))
+	
+								local args2 = {
+									"WeaponFired",
+									{
+										vector.create(pos2.X, pos2.Y, pos2.Z),
+										vector.create(pos.X, pos.Y, pos.Z),
+										{
+											hitOffset = CFrame.new(),
+											hasHitPlayer = false,
+											replicatedHitPos = vector.create(pos.X, pos.Y, pos.Z),
+											hasHitPart = true,
+											fireOffset = CFrame.new()
+										},
+										_G.ScriptAttackID
+									}
+								}
+								char.Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args2))
+	
+								ReloadUpdate("Start")
+	
+							end)
+						else
+							--warn("Revolver not found in your character!")
+						end
+					end
+				end)
+	
+			end)
+			spawn(function() -- mobile silent aim
+				local UserInputService = game:GetService("UserInputService")
+				if UserInputService.KeyboardEnabled then return end
+				spawn(function()
+					SendNotification("Dabitob","click button with ur gun out twin","rbxassetid://12386566164",10,"ok")
+				end)
+				local cooldown = false
+	
+				local function canSeeTarget(originPart, targetPart)
+					local rayParams = RaycastParams.new()
+					rayParams.FilterType = Enum.RaycastFilterType.Blacklist
+					rayParams.FilterDescendantsInstances = {LocalPlayer.Character}
+	
+					local result = workspace:Raycast(originPart.Position, (targetPart.Position - originPart.Position), rayParams)
+					if result then
+						-- If the hit part is not part of the target's character, then blocked
+						if not result.Instance:IsDescendantOf(targetPart.Parent) then
+							return false
+						end
+					end
+					return true
+				end
+	
+				local function getClosestPlayer()
+					local closestPlayer, closestDistance
+					local char = LocalPlayer.Character
+					if not char or not char:FindFirstChild("HumanoidRootPart") or not char:FindFirstChild("Head") then return nil end
+					local myPos = char.HumanoidRootPart.Position
+	
+					for _, player in ipairs(Players:GetPlayers()) do
+						if player ~= LocalPlayer 
+							and player.Character
+							and player.Character:FindFirstChild("HumanoidRootPart")
+							and player.Character:FindFirstChild("Humanoid")
+							and not player.Character:FindFirstChild("ForceField")
+							and player.Character.Humanoid.Health > 0 then
+	
+							local dist = (player.Character.HumanoidRootPart.Position - myPos).Magnitude
+							if not closestDistance or dist < closestDistance then
+								-- Check line of sight
+								if canSeeTarget(char.Head, player.Character.Head) then
+									closestDistance = dist
+									closestPlayer = player
+								end
+							end
+						end
+					end
+					return closestPlayer
+				end
+	
+				local function ReloadUpdate(val)
+					local char = LocalPlayer.Character
+					if char and char:FindFirstChild("Revolver") then
+						char.Revolver:FindFirstChild("ClientEvent"):FireServer("ReloadUpdate", { val })
+						if val == "Start" then
+							wait(0.75)
+							ReloadUpdate("AmmoAdded") 
+						end
+					end
+				end
+	
+				if _G.ScriptConnection then _G.ScriptConnection:Disconnect() end
+				
+				MobileShoot_Button.Visible = true
+				_G.ScriptConnection = MobileShoot_Button.MouseButton1Click:Connect(function()
+						if cooldown then return end
+	
+						local char = LocalPlayer.Character
+						if char and char:FindFirstChild("Revolver") then
+							-- Find closest valid target
+							local target = getClosestPlayer()
+							if not target then
+								--warn("No valid target found or line of sight blocked")
+								return
+							end
+							spawn(function()
+								cooldown = true
+								wait(0.55)
+								--wait(0.75)
+								cooldown = false
+							end)
+							-- === Original Script ===
+							if _G.InjectionMethod == "Good" then
+								for _, obj in ipairs(getgc(true)) do
+									if type(obj) == "table" and rawget(obj, "attackIDCounter") then
+										--print("Found variable:", obj.attackIDCounter)
+										obj.attackIDCounter = obj.attackIDCounter + 1
+										_G.ScriptAttackID = obj.attackIDCounter
+									end
+								end
+							else
+								_G.ScriptAttackID = _G.ScriptAttackID + 1
 							end
 	
 							local Head = char:WaitForChild("Head")
@@ -761,11 +1031,10 @@ local function YVLNW_fake_script() -- System.Controller
 						else
 							--warn("Revolver not found in your character!")
 						end
-					end
+	
 				end)
 	
 			end)
-			SendNotification("Dabitob","click e with ur gun out twin","rbxassetid://12386566164",10,"ok")
 		end)
 	
 		ServerHop_Buttn.MouseButton1Click:Connect(function()
@@ -913,6 +1182,13 @@ local function YVLNW_fake_script() -- System.Controller
 			end
 		end)
 		spawn(function() -- omg stupid error sound
+			pcall(function()
+				if _G.InjectionMethod == "Weak" then
+					game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions.ChildAdded:Connect(function(Sound)
+						if Sound:IsA("Sound") and Sound.SoundId == "rbxassetid://584288307" then Sound:Destroy() end
+					end)
+				end
+			end)
 			local soundtable = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientLibrary)
 			soundtable.UISounds.Error.Volume = 0
 		end)
@@ -938,4 +1214,4 @@ local function YVLNW_fake_script() -- System.Controller
 	
 	
 end
-coroutine.wrap(YVLNW_fake_script)()
+coroutine.wrap(TPHQDQ_fake_script)()
