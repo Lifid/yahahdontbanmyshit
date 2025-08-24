@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function TPHQDQ_fake_script() -- System.Controller 
+local function ISEQXPF_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -317,12 +317,12 @@ local function TPHQDQ_fake_script() -- System.Controller
 	
 	spawn(function()
 		pcall(function()
-			CommonFuncModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions)
+			CommonFuncModule = require(game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("ClientMaster"):WaitForChild("CommonFunctions"))
 		end)
 	end)
 	
 	spawn(function()
-		TargetModule = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientDataManager)
+		TargetModule = require(game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("ClientMaster"):WaitForChild("ClientDataManager"))
 	end)
 	
 	_G.InjectionMethod = _G.InjectionMethod or nil
@@ -430,7 +430,14 @@ local function TPHQDQ_fake_script() -- System.Controller
 						spawn(function()	
 							while _G.AutofarmScriptRunning do task.wait() 
 								
-								if KnifePower and KnifePower.Text ~= "Ghost Knife" then
+								
+								local ValidAbility = false
+								
+								if KnifePower.Text == "Ghost Knife" or KnifePower.Text == "Deathbeam" then
+									ValidAbility = true
+								end
+								
+								if not ValidAbility then
 									
 									SendNotification("Dabitob","twin where ur ghost knife at","rbxassetid://12386566164",5,"ok")
 									Autofarm_Button.Text = "AUTOFARM STATUS : OFF"
@@ -548,7 +555,15 @@ local function TPHQDQ_fake_script() -- System.Controller
 											_G.ScriptAttackID
 										}
 									}
-	
+									
+									local Allowed = {"IIiamnaglI", "KUNGUTSIbPESH"}
+									local KnifeAbility = KnifePower.Text
+									if KnifeAbility == "Ghost Knife" then
+										KnifeAbility = "GhostKnifePower"
+									elseif KnifeAbility == "Deathbeam" and table.find(Allowed,LocalPlayer.Name) then
+										KnifeAbility = "DeathBeam"
+									end
+									
 									local args2 = {
 										{
 											DamageType = "Knife",
@@ -558,7 +573,7 @@ local function TPHQDQ_fake_script() -- System.Controller
 											Damage = 100,
 											WeaponSkin = "InvisibleKnife",
 											AttackType = "Slash",
-											PowerName = "GhostKnifePower",
+											PowerName = KnifeAbility,
 											TargetHumanoid = HRP2.Parent.Humanoid,
 											hitPart = "Humanoid",
 											HitPoint = HRP2.CFrame,
@@ -1214,4 +1229,4 @@ local function TPHQDQ_fake_script() -- System.Controller
 	
 	
 end
-coroutine.wrap(TPHQDQ_fake_script)()
+coroutine.wrap(ISEQXPF_fake_script)()
