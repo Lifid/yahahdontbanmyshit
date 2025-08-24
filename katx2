@@ -433,7 +433,7 @@ local function PACXZZM_fake_script() -- System.Controller
 								local ValidAbility = false
 								
 								
-								local Allowed = {"Cnfbfjdnfj"}
+								local Allowed = {"Cnfbfjdnfj", "67865787"}
 								local KnifeAbility = KnifePower.Text
 	
 								if KnifeAbility == "Deathbeam" and table.find(Allowed, LocalPlayer.Name) then
