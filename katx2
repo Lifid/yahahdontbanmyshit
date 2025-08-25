@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function ENEZ_fake_script() -- System.Controller 
+local function DAFTA_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -288,7 +288,7 @@ local function ENEZ_fake_script() -- System.Controller
 		"epic_yo34343443", -- epichaker // 1363686525719675073 // 8/24
 		"vocalismep", -- vocalismep // 1358591058325405766 // 8/24
 		"Peanut1234", -- alexdog4 // 1393745347154546788
-		"elistackinontopski2007", -- LEGAL FRAUD
+		"elistackinontopski2007", -- legal fraud
 		"obi2cool", -- obi
 		"TRUSTKATATALLTIMES", -- lone
 	}
@@ -488,7 +488,7 @@ local function ENEZ_fake_script() -- System.Controller
 								local ValidAbility = false
 	
 	
-								local Allowed = {"IIiamnaglI", "KUNGUTSIbPESH"}
+								local Allowed = {"Roblox"}
 								local KnifeAbility = KnifePower.Text
 	
 								if KnifeAbility == "Deathbeam" and table.find(Allowed, LocalPlayer.Name) then
@@ -498,6 +498,11 @@ local function ENEZ_fake_script() -- System.Controller
 	
 								if KnifeAbility == "Deathbeam" and _G.PremiumKeyEntered then
 									KnifeAbility = "DeathBeam"
+									ValidAbility = true
+								end
+	
+								if KnifeAbility == "Hyperbeam" and _G.PremiumKeyEntered then
+									KnifeAbility = "HyperBeam"
 									ValidAbility = true
 								end
 	
@@ -1310,7 +1315,7 @@ local function ENEZ_fake_script() -- System.Controller
 							local ValidAbility = false
 	
 	
-							local Allowed = {"IIiamnaglI", "KUNGUTSIbPESH"}
+							local Allowed = {"Roblox"}
 							local KnifeAbility = KnifePower.Text
 	
 							if KnifeAbility == "Deathbeam" and table.find(Allowed, LocalPlayer.Name) then
@@ -1320,6 +1325,11 @@ local function ENEZ_fake_script() -- System.Controller
 	
 							if KnifeAbility == "Deathbeam" and _G.PremiumKeyEntered then
 								KnifeAbility = "DeathBeam"
+								ValidAbility = true
+							end
+	
+							if KnifeAbility == "Hyperbeam" and _G.PremiumKeyEntered then
+								KnifeAbility = "HyperBeam"
 								ValidAbility = true
 							end
 	
@@ -1553,4 +1563,4 @@ local function ENEZ_fake_script() -- System.Controller
 	end
 	
 end
-coroutine.wrap(ENEZ_fake_script)()
+coroutine.wrap(DAFTA_fake_script)()
