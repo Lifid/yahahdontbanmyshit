@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function DAFTA_fake_script() -- System.Controller 
+local function HHIQG_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -291,6 +291,7 @@ local function DAFTA_fake_script() -- System.Controller
 		"elistackinontopski2007", -- legal fraud
 		"obi2cool", -- obi
 		"TRUSTKATATALLTIMES", -- lone
+		"saturn7", -- Saturn // 922179668566769705    8/25
 	}
 	
 	
@@ -463,6 +464,78 @@ local function DAFTA_fake_script() -- System.Controller
 		end
 	
 		if FoundHigherAuthority then ServerHop() end
+	end
+	
+	function BlockPlayer()
+		spawn(function()
+			LocalPlayer.PlayerGui.GameUI.Enabled = false
+			local GuiService = game:GetService("GuiService")
+			local PlayerFrame = game:GetService("CoreGui").PlayerList.Children.OffsetFrame.PlayerScrollList.SizeOffsetFrame.ScrollingFrameContainer.ScrollingFrameClippingFrame.ScollingFrame.OffsetUndoFrame
+			local VirtualInputManager = game:GetService("VirtualInputManager")
+	
+			local btn = nil
+	
+			local function GetPlayerWithHighestKills()
+				local highestPlayer = nil
+				local highestKills = -math.huge -- start very low so any number is higher
+	
+				for _, player in ipairs(game.Players:GetPlayers()) do
+					if player.Name ~= LocalPlayer.Name then
+						local leaderstats = player:FindFirstChild("leaderstats")
+						if leaderstats then
+							local kills = leaderstats:FindFirstChild("Kills")
+							if kills and kills.Value > highestKills then
+								highestKills = kills.Value
+								highestPlayer = player
+							end
+						end
+					end
+				end
+	
+				return highestPlayer
+			end
+			local HighestPlayer = GetPlayerWithHighestKills()
+	
+			for i, thing in PlayerFrame:GetChildren() do
+				local Label = thing.ChildrenFrame.NameFrame.BGFrame.OverlayFrame.PlayerName.PlayerName
+				if Label.Text == HighestPlayer.DisplayName then
+					print(Label.Text)
+					Label.Parent.Parent.PlayerIcon.ImageTransparency = 1
+					btn = Label.Parent.Parent.Parent
+					break
+				end
+			end
+	
+			local function HighlightAndClick(button)
+				if button and (button:IsA("TextButton") or button:IsA("ImageButton")) then
+					-- Highlight with UI navigation
+					GuiService.SelectedObject = nil
+					GuiService.SelectedObject = button
+					wait(0.1)
+					-- Simulate a click/press
+					VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game) 
+					VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+					wait(0.5)
+	
+					GuiService.SelectedObject = game:GetService("CoreGui").PlayerList.Children.OffsetFrame.PlayerScrollList.SizeOffsetFrame.ScrollingFrameContainer.PlayerDropDown.InnerFrame.BlockButton
+					wait(0.5)
+					VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game) 
+					VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+	
+					game:GetService("CoreGui"):WaitForChild("BlockingModalScreen").BlockingModalContainer.BlockingModalContainerWrapper.BlockingModal.AlertModal.AlertContents.Footer.Buttons:FindFirstChild("3").Selected = true
+					GuiService.SelectedObject = game:GetService("CoreGui"):WaitForChild("BlockingModalScreen").BlockingModalContainer.BlockingModalContainerWrapper.BlockingModal.AlertModal.AlertContents.Footer.Buttons:FindFirstChild("3")
+					wait(1)
+					GuiService.SelectedObject = game:GetService("CoreGui"):WaitForChild("BlockingModalScreen").BlockingModalContainer.BlockingModalContainerWrapper.BlockingModal.AlertModal.AlertContents.Footer.Buttons:FindFirstChild("3")
+					VirtualInputManager:SendKeyEvent(true, Enum.KeyCode.Return, false, game) 
+					VirtualInputManager:SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+	
+	
+					wait(0.5)
+					GuiService.SelectedObject = nil
+				end
+			end
+			HighlightAndClick(btn)
+		end)
 	end
 	
 	function GUIFunction()
@@ -1135,6 +1208,8 @@ local function DAFTA_fake_script() -- System.Controller
 		end)
 	
 		ServerHop_Buttn.MouseButton1Click:Connect(function()
+			BlockPlayer()
+			wait(4)
 			ServerHop()
 		end)
 	
@@ -1283,6 +1358,12 @@ local function DAFTA_fake_script() -- System.Controller
 			local soundtable = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientLibrary)
 			soundtable.UISounds.Error.Volume = 0
 		end)
+		spawn(function()
+			wait(3)
+			if game:GetService("CoreGui"):WaitForChild("RobloxPromptGui").promptOverlay:FindFirstChild("ErrorPrompt") then
+				ServerHop()
+			end
+		end)
 	end
 	
 	if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
@@ -1304,6 +1385,44 @@ local function DAFTA_fake_script() -- System.Controller
 			end
 		end)
 		
+		spawn(function() -- auto rejoin
+			local RanPlayerFunc = false
+			
+			local function PlayerLost()
+				if RanPlayerFunc then return end
+	
+				local AmountOfPlayers = #Players:GetPlayers()
+				if AmountOfPlayers <= 4 then
+					RanPlayerFunc = true
+					spawn(function()
+						wait(6)
+						RanPlayerFunc = false
+					end)
+					
+					local PlayerWantsTeleport = true
+					SendNotification("Dabitob","twin lets hop its low here","rbxassetid://12386566164","10","NOO!!!",
+						function()
+							PlayerWantsTeleport = false
+						end
+					)
+					wait(3)
+					if PlayerWantsTeleport then
+						BlockPlayer()
+						wait(4)
+						ServerHop()
+					end
+				end
+			end
+			
+			Players.PlayerRemoving:Connect(function()
+				PlayerLost()
+			end)
+			
+			PlayerLost()
+		end)
+		
+		wait(1)	
+		_G.AutofarmScriptRunning = true
 		if _G.AutofarmScriptRunning then
 			Autofarm_Button.Text = "AUTOFARM STATUS : ON"
 			wait(2)
@@ -1563,4 +1682,4 @@ local function DAFTA_fake_script() -- System.Controller
 	end
 	
 end
-coroutine.wrap(DAFTA_fake_script)()
+coroutine.wrap(HHIQG_fake_script)()
