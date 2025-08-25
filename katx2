@@ -302,7 +302,7 @@ local function DAFTA_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "1200lines"
+	local ACCESS_CODE = "premiumisout"
 	--[[
 	
 	
