@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function KRRHTV_fake_script() -- System.Controller 
+local function YVRO_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -306,7 +306,7 @@ local function KRRHTV_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "premiumisout"
+	local ACCESS_CODE = "silentaimonly"
 	--[[
 	
 	
@@ -326,6 +326,7 @@ local function KRRHTV_fake_script() -- System.Controller
 	local saveFile = "VMProtectSDK64.json"
 	
 	local KnifePower = nil
+	local KnifeIcon = nil
 	local CommonFuncModule = nil
 	local TargetModule = nil
 	local SelfKill = nil
@@ -336,6 +337,7 @@ local function KRRHTV_fake_script() -- System.Controller
 	
 	spawn(function()
 		KnifePower = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Menu"):WaitForChild("InventoryUI"):WaitForChild("LoadoutScreen"):WaitForChild("holder"):WaitForChild("EquippedItems"):WaitForChild("Left"):WaitForChild("KnifePowers"):WaitForChild("ItemName")
+		KnifeIcon = LocalPlayer.PlayerGui:WaitForChild("GameUI"):WaitForChild("Menu"):WaitForChild("InventoryUI"):WaitForChild("LoadoutScreen"):WaitForChild("holder"):WaitForChild("EquippedItems"):WaitForChild("Left"):WaitForChild("KnifePowers"):WaitForChild("ItemIcon")
 	end)
 	
 	spawn(function()
@@ -445,7 +447,7 @@ local function KRRHTV_fake_script() -- System.Controller
 	end
 	
 	function ServerHop()
-		if _G.PremiumKeyEntered then
+		if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 			SaveGlobals()
 		end
 		local placeId = game.PlaceId
@@ -466,7 +468,7 @@ local function KRRHTV_fake_script() -- System.Controller
 			end	
 		end
 	
-		if FoundHigherAuthority then ServerHop() end
+		if FoundHigherAuthority then BlockPlayer() ServerHop() end
 	end
 	
 	function BlockPlayer()
@@ -572,12 +574,17 @@ local function KRRHTV_fake_script() -- System.Controller
 									ValidAbility = true
 								end
 	
-								if KnifeAbility == "Deathbeam" and _G.PremiumKeyEntered then
+								if KnifeAbility == "Deathbeam" and table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 									KnifeAbility = "DeathBeam"
 									ValidAbility = true
 								end
-	
-								if KnifeAbility == "Hyperbeam" and _G.PremiumKeyEntered then
+								
+								if KnifeIcon.Image == "rbxassetid://1854920414" and table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
+									KnifeAbility = "DeathBeam"
+									ValidAbility = true
+								end
+								
+								if KnifeAbility == "Hyperbeam" and table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 									KnifeAbility = "HyperBeam"
 									ValidAbility = true
 								end
@@ -586,6 +593,7 @@ local function KRRHTV_fake_script() -- System.Controller
 									KnifeAbility = "GhostKnifePower"
 									ValidAbility = true
 								end
+								
 	
 	
 								if not ValidAbility then
@@ -733,7 +741,7 @@ local function KRRHTV_fake_script() -- System.Controller
 	
 								end)
 	
-								if _G.PremiumKeyEntered then
+								if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 									wait(0.46)
 								else
 									wait(0.575)
@@ -853,7 +861,7 @@ local function KRRHTV_fake_script() -- System.Controller
 							end
 							spawn(function()
 								cooldown = true
-								if _G.PremiumKeyEntered then
+								if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 									wait(0.55)
 								else
 									wait(0.75)
@@ -1071,7 +1079,7 @@ local function KRRHTV_fake_script() -- System.Controller
 						end
 						spawn(function()
 							cooldown = true
-							if _G.PremiumKeyEntered then
+							if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 								wait(0.55)
 							else
 								wait(0.75)
@@ -1507,7 +1515,7 @@ local function KRRHTV_fake_script() -- System.Controller
 		_G.AutofarmScriptRunning = true
 		if _G.AutofarmScriptRunning then
 			Autofarm_Button.Text = "AUTOFARM STATUS : ON"
-			wait(2)
+			wait(5)
 			spawn(function()
 				local function KillLoop()
 					spawn(function()	
@@ -1524,12 +1532,17 @@ local function KRRHTV_fake_script() -- System.Controller
 								ValidAbility = true
 							end
 	
-							if KnifeAbility == "Deathbeam" and _G.PremiumKeyEntered then
+							if KnifeAbility == "Deathbeam" and table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 								KnifeAbility = "DeathBeam"
 								ValidAbility = true
 							end
 	
-							if KnifeAbility == "Hyperbeam" and _G.PremiumKeyEntered then
+							if KnifeIcon.Image == "rbxassetid://1854920414" and table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
+								KnifeAbility = "DeathBeam"
+								ValidAbility = true
+							end
+	
+							if KnifeAbility == "Hyperbeam" and table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 								KnifeAbility = "HyperBeam"
 								ValidAbility = true
 							end
@@ -1538,6 +1551,7 @@ local function KRRHTV_fake_script() -- System.Controller
 								KnifeAbility = "GhostKnifePower"
 								ValidAbility = true
 							end
+	
 	
 	
 							if not ValidAbility then
@@ -1597,6 +1611,7 @@ local function KRRHTV_fake_script() -- System.Controller
 								end
 							end)
 							if Target and CanFireAt(Target) then Player = Target end
+	
 	
 							local Knife = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Knife") or LocalPlayer.Backpack:FindFirstChild("Knife")
 							if not Player or not Knife then continue end 
@@ -1684,7 +1699,7 @@ local function KRRHTV_fake_script() -- System.Controller
 	
 							end)
 	
-							if _G.PremiumKeyEntered then
+							if table.find(PREMIUM_KEYS, _G.PremiumKeyEntered) then
 								wait(0.46)
 							else
 								wait(0.575)
@@ -1695,6 +1710,7 @@ local function KRRHTV_fake_script() -- System.Controller
 						end
 					end)
 				end
+	
 	
 				if not _G.CharAddedConnectionScript then
 					_G.CharAddedConnectionScript = LocalPlayer.CharacterAdded:Connect(function()
@@ -1707,9 +1723,9 @@ local function KRRHTV_fake_script() -- System.Controller
 				if LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character:FindFirstChild("Humanoid") then
 					local hum = LocalPlayer.Character:FindFirstChild("Humanoid")
 					if hum.Health ~= 0 then
-						LocalPlayer.Character:WaitForChild("HumanoidRootPart", 3)
-						SelfKill:FireServer()
-	
+						local Security = LocalPlayer.Character:WaitForChild("HumanoidRootPart", 8)
+						if not Security then SelfKill:FireServer() end
+						KillLoop()
 					end
 				end
 	
@@ -1764,4 +1780,4 @@ local function KRRHTV_fake_script() -- System.Controller
 	end
 	
 end
-coroutine.wrap(KRRHTV_fake_script)()
+coroutine.wrap(YVRO_fake_script)()
