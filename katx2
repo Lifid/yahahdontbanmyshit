@@ -297,8 +297,8 @@ local function YVRO_fake_script() -- System.Controller
 		"arsinarsin", -- Arsin
 		"ArteenBrigga12", -- K.D
 		"Goldgun2009", -- whdudtlr   // 1323958354392907786
-		"resok1@" -- fole.res0k  //  719633489586159697
-		"dabisgoated" -- kitty 
+		"resok1@", -- fole.res0k  //  719633489586159697
+		"dabisgoated", -- kitty 
 	}
 	
 	
