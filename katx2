@@ -297,6 +297,7 @@ local function YVRO_fake_script() -- System.Controller
 		"arsinarsin", -- Arsin
 		"ArteenBrigga12", -- K.D
 		"Goldgun2009", -- whdudtlr   // 1323958354392907786
+		"resok1@" -- fole.res0k  //  719633489586159697
 	}
 	
 	
@@ -1380,7 +1381,7 @@ local function YVRO_fake_script() -- System.Controller
 								end
 	
 								if Revolver then
-									Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args))
+								--	Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args))
 								end
 							end)
 						end
