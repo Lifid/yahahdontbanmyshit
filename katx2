@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function GDVHWFU_fake_script() -- System.Controller 
+local function TXQFU_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -1425,7 +1425,7 @@ local function GDVHWFU_fake_script() -- System.Controller
 			pcall(function()
 				if _G.InjectionMethod == "Weak" then
 					game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.CommonFunctions.ChildAdded:Connect(function(Sound)
-						if Sound:IsA("Sound") and Sound.SoundId == "rbxassetid://584288307" then Sound:Destroy() end
+						if Sound:IsA("Sound") and Sound.SoundId == "rbxassetid://550209561" then Sound.Volume = 0 end
 					end)
 				end
 			end)
@@ -1801,4 +1801,4 @@ local function GDVHWFU_fake_script() -- System.Controller
 	end
 	
 end
-coroutine.wrap(GDVHWFU_fake_script)()
+coroutine.wrap(TXQFU_fake_script)()
