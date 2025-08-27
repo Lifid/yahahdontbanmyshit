@@ -285,7 +285,7 @@ local function YVRO_fake_script() -- System.Controller
 	local KeyBackground = KeySystem:WaitForChild("Background")
 	
 	local PREMIUM_KEYS = {
-		"dabi2cool", -- me
+		"dabi2kool", -- me
 		"epic_yo34343443", -- epichaker // 1363686525719675073 // 8/24
 		"vocalismep", -- vocalismep // 1358591058325405766 // 8/24
 		"IOHSIAOUHGFIOASGOIASGIOAH25%@(OAISFOIASJFOIASIOFHASFHOI@TQNOINASOIFA", -- alexdog4 // 1393745347154546788 // Violation
@@ -298,6 +298,7 @@ local function YVRO_fake_script() -- System.Controller
 		"ArteenBrigga12", -- K.D
 		"Goldgun2009", -- whdudtlr   // 1323958354392907786
 		"resok1@" -- fole.res0k  //  719633489586159697
+		"dabisgoated" -- kitty 
 	}
 	
 	
