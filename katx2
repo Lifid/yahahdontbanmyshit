@@ -270,7 +270,7 @@ UICorner_11.Parent = Background_2
 
 -- Scripts:
 
-local function YVRO_fake_script() -- System.Controller 
+local function GDVHWFU_fake_script() -- System.Controller 
 	local script = Instance.new('LocalScript', System)
 
 	local TeleportService = game:GetService("TeleportService")
@@ -311,7 +311,7 @@ local function YVRO_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "ghostknifeisbackguys"
+	local ACCESS_CODE = "silentaimonly"
 	--[[
 	
 	
@@ -1345,7 +1345,8 @@ local function YVRO_fake_script() -- System.Controller
 							PlayerWantsTeleport = false
 						end
 					)
-					spawn(function()
+					--[[
+									spawn(function()
 						for i = 1,100 do task.wait()
 							spawn(function()
 								local Revolver = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Revolver") or LocalPlayer.Backpack:FindFirstChild("Revolver")
@@ -1383,11 +1384,12 @@ local function YVRO_fake_script() -- System.Controller
 								end
 	
 								if Revolver then
-								--	Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args))
+									Revolver:WaitForChild("ClientEvent"):FireServer(unpack(args))
 								end
 							end)
 						end
 					end)
+					]]
 					wait(4)
 					BlockPlayer()
 					wait(4)
@@ -1430,7 +1432,7 @@ local function YVRO_fake_script() -- System.Controller
 			local soundtable = require(game:GetService("Players").LocalPlayer.PlayerGui.GameUI.ClientMaster.ClientLibrary)
 			soundtable.UISounds.Error.Volume = 0
 		end)
-		spawn(function()
+		spawn(function() -- serverhop if alr kicked
 			wait(3)
 			if game:GetService("CoreGui"):WaitForChild("RobloxPromptGui").promptOverlay:FindFirstChild("ErrorPrompt") then
 				ServerHop()
@@ -1495,7 +1497,7 @@ local function YVRO_fake_script() -- System.Controller
 			PlayerLost()
 		end)
 		
-		spawn(function()
+		spawn(function() -- rejoin if not classic
 			wait(3)
 			local GameMode = workspace:WaitForChild("Gamemode")
 			
@@ -1517,6 +1519,20 @@ local function YVRO_fake_script() -- System.Controller
 		end)
 		
 		wait(1)	
+		
+		spawn(function() -- if admin present, Kick
+			while wait(3) do
+				local Check = CheckForAdmins()
+				if Check then
+					_G.AutofarmScriptRunning = false
+					SendNotification("Dabitob","bro theres an admin here or sumn..","rbxassetid://12386566164","3","k fine")
+					BlockPlayer()
+					wait(4)
+					ServerHop()
+				end
+			end
+		end)
+		
 		_G.AutofarmScriptRunning = true
 		if _G.AutofarmScriptRunning then
 			Autofarm_Button.Text = "AUTOFARM STATUS : ON"
@@ -1785,4 +1801,4 @@ local function YVRO_fake_script() -- System.Controller
 	end
 	
 end
-coroutine.wrap(YVRO_fake_script)()
+coroutine.wrap(GDVHWFU_fake_script)()
