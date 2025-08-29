@@ -287,7 +287,7 @@ local function TXQFU_fake_script() -- System.Controller
 	local PREMIUM_KEYS = {
 		"dabi2kool", -- me
 		"epic_yo34343443", -- epichaker // 1363686525719675073 // 8/24
-		"vocalismep", -- vocalismep // 1358591058325405766 // 8/24
+		--"vocalismep", -- vocalismep // 1358591058325405766 // 8/24
 		"IOHSIAOUHGFIOASGOIASGIOAH25%@(OAISFOIASJFOIASIOFHASFHOI@TQNOINASOIFA", -- alexdog4 // 1393745347154546788 // Violation
 		"elistackinontopski2007", -- legal fraud
 		"obi2cool", -- obi
