@@ -312,7 +312,7 @@ local function TXQFU_fake_script() -- System.Controller
 	
 	
 	]]
-	local ACCESS_CODE = "higuys"
+	local ACCESS_CODE = "todayscodeis"
 	--[[
 	
 	
