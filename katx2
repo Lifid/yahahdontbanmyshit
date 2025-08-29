@@ -900,6 +900,9 @@ local function TXQFU_fake_script() -- System.Controller
 								if math.random(1,10) == 1 then
 									HeadshotOrNah = true
 								end
+								if LocalPlayer.Name == "heckaro10" then
+									HeadshotOrNah = true
+								end
 								spawn(function()
 									if CommonFuncModule then
 										local function Shoot(arg1, arg2)
